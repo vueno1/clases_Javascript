@@ -1,0 +1,24 @@
+solicitar datos  (prompt) 
+console.log para hacer algo con ese datos
+alert ()
+
+parsear datos ingresados 
+
+pedir nombre 
+pedir numero y parsearlo 
+sumarlo con otro guardado en una variable 
+mostrar resultado con console.log
+
+pedir text con prompt 
+concatenarlo 
+mostrar con alert. 
+
+******************************************
+let nombre = prompt → cual es tu nombre? 
+let bienvenida = "bienvenida" + ""  + nombre
+alert (bienvenida)
+
+
+
+
+
