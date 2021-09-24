@@ -55,12 +55,247 @@ console.log (nombre + " " + "finalizo la escuela hace" + " " + calculoAñoFinEsc
 
 entrega 2
 
-usuario 
-contraseña 
+// pedido de merchandising.....
+
+const merch1 = "cuaderno"
+const merch2 = "llavero"
+const merch3 = "sticker"
+const merch4 = "medias"
+
+let merchandising = prompt ("que producto elige?")
+
+if (merchandising == merch1 || merchandising == merch2 || merchandising == merch3) {
+    console.log ('disponible');
+}  else {
+    console.log ('no esta disponible')
+}
+
+let merch1Cant = 2
+let merch2Cant = 1
+let merch3Cant = 3
+let merch4Cant = 0
+
+let merchChoose = Number (prompt ("cantidad?"))
+
+//eleccion cuadernos ....................
+if (merchChoose === merch1 || merchChoose ===1) {
+    console.log ("1 unidad en el carrito")
+} else if (merchChoose === merch1 || merchChoose ===2) {
+    console.log ("2 unidades en el carrito")
+} else {
+    console.log ("no hay suficiente")
+}
+
+//eleccion llavero..........
+if (merchChoose === merch2 || merchChoose ===1) {
+    console.log ("1 unidad en el carrito")
+} else {
+    console.log ("no hay suficiente")
+}
+
+//eleccion stickers.......
+if (merchChoose === merch3 || merchChoose ===1) {
+    console.log ("1 unidad en el carrito")
+} else if (merchChoose === merch3 || merchChoose ===2) {
+    console.log ("2 unidades en el carrito")
+} else if (merchChoose === merch3 || merchChoose ===3) {
+    console.log ("3 unidades en el carrito")
+} else {
+    console.log ("no hay suficiente")
+}
+
+---------------------------------------------------------------------------------------------------------
+
+Variables.
+
+1- Generar un programa que pida al usuario su nombre y realice un saludo. Mostrarlo por pantalla y por consola.
+
+2- generar un programa que pida al usuario dos numeros, y realice la suma resta multiplicacion y division de ambos numeros. Mostrar los resultados de todas las operaciones por pantalla y por consola. 
+
+3- realizar un programa solicite al usuario dos numeros, y concatenarlos de forma tal que formen un solo número. Mostrar en consola.
+
+1- 
+let nombre = prompt ("ingrese nombre")
+console.log (nombre);
+alert ("hola" + " " + nombre)
+
+// --------------------------------
+
+2 - 
+let numero1 = Number (prompt ("ingrese 1er numero"))
+let numero2 = Number (prompt ("ingrese 2do numero "))
+
+let suma = numero1 + numero2
+console.log = (suma)
+alert ("la suma es" + " " + suma)
+
+let resta = numero1 - numero2
+console.log = (resta)
+alert ("la resta es" + " " + resta)
+
+let multiplicacion = numero1 * numero2
+console.log = (multiplicacion)
+alert ("la multiplicacion" + " " + multiplicacion)
+
+let division = numero1 / numero2
+console.log = (division)
+alert ("la division es" + " " + division)
+
+//------------------------------------------------
+3-
+let numeroRandom1 = prompt ("ingrese 1er numero")
+let numeroRandom2 = prompt ("ingrese 2do numero")
+
+let concatenacion = numeroRandom1 + numeroRandom2
+console.log = (concatenacion)
+alert ("el numero es" + " " + concatenacion)
+
+------------------------------------------------------------------------------------------------------------------
 
 
+Ejercicios condicionales.
+
+1. Solicitar al usuario dos numeros, y una operacion. Utilizando un condicional realizar la operacion solicitada por el usuario, y mostrar mediante un alert el resultado.
+(Verificar que los datos ingresados sean correctos)
+
+2. Solicitar al usuario el año de nacimiento y calcular la edad. Mostrar mediante alert si la persona es mayor o menor de edad.
+
+3. Solicitar al usuario un numero cualquiera, y verificar si es par o impar.
+
+4. Solicitar al usuario que ingrese dos numeros, determinar cual es el mayor y cual es el menor. En caso de que sean iguales tambien deberá ser informado. 
+Imprimir el resultado por consola y por alert.
+
+5. Solicitar al usuario que ingrese una letra , Indicar si es una vocal o consonante. 
+
+6. Solicitar al usuario un numero, indicar si el mismo es positivo, negativo o si es cero.
+
+7. Solicitar al usuario que ingrese un año, determinar si es bisiesto o no.
+
+---------------------------------------------------------------
+1-
+let num1 = Number (prompt ("ingrese numero"))
+let num2  = Number (prompt ("ingrese numero"))
+
+let suma2 = num1 + num2
+alert (suma2)
+
+if (suma2 === 8) {
+    console.log ("puede ingresar")
+} else {
+    console.log ("no puede ingresar")
+}
+
+//--------------------------------------------------------------
+2-
+let añoNac = Number (prompt ("ingrese año nacimiento"))
+let añoActual = 2021
+let calculoEdad = añoActual - añoNac
+
+if (calculoEdad > 18) {
+    alert ("usted es mayor de edad")
+} else {
+    alert ("usted es menor de edad")
+}
+
+//-------------------------------------------------------------
+3-
+let num3 = Number (prompt ("ingrese numero"))
+
+if (num3 % 2 == 0) {
+    console.log ("este numero es par")
+} else { 
+    console.log ("es numero es impar")
+}
+
+//---------------------------------------------------------------
+4-
+let num4 = Number (prompt ("ingrese numero"))
+let num5 = Number (prompt ("ingrese numero"))
+
+if (num4 < num5) {
+    console.log (num4  + " " + "es menor a" + " " + num5)
+} else {
+    console.log (num4  + " " + "es mayor a" + " " + num5)
+}
+
+//---------------------------------------------------------------
+5-
+let letra = prompt ("ingrese letra")
+
+if (letra === 'a' || letra === 'e' || letra === 'i' || letra === 'o' || letra === 'u') {
+    
+    console.log ("esta letra es una vocal")
+
+} else {
+    console.log ("es una consonante")
+}
+
+//-----------------------------------------------------------
+6-
+let num6 = Number (prompt ("ingrese numero"))
+
+if (num6 > 0) {
+    console.log ("este numero es positivo")
+} else if (num6 === 0 ) {
+    console.log ("este numero es 0")
+} else {
+    console.log ("este numero es negativo")
+}
+
+// ---------------------------------------------------------------------
+7-
+let añoRandom = Number (prompt ("ingrese año cualquiera"))
+
+if (añoRandom % 4 == 0 && añoRandom % 100 != 0 || añoRandom % 400 == 0) {
+    console.log ("este año es bisiesto")
+} else {
+    console.log ("no es")
+}
 
 
+---------------------------------------------------------------------------------------------------------------------
+
+FUNCIONES EJERCICIOS: 
+
+1. Generar una funcion suma, donde el usuario ingrese dos numeros y la funcion retorne el resultado de la suma de dichos numeros.
+
+2. Realizar un programa que simule, mediante una función como el ordenador cuenta por consola, 
+desde 0 hasta un número ingresado por el usuario.
+
+3.  Realizar un programa que, mediante una función, intercambie los valores de dos variables que se solicitan al usuario
+
+4. Generar una funcion llamada fibonacci que calcule los 10 primeros numeros de la sucesion de fibonacci. Mostrar el resultado por consola.
 
 
+-----------------------------------------------------------------------------------
+
+ejemplo WHILE del tutor: 
+
+console.log('empieza la cuenta regresiva');
+
+let i = 0;
+while (i < 10) {
+   console.log("Arranca en " + i);
+   i++;
+}
+
+console.log('arranca la carrera!');
+
+en este caso, el codigo haria lo siguiente
+diria en la consola "empieza la cuenta regresiva"
+y luego empieza el bucle while que se va a repetir mientras la condicion (i < 10) se cumpla, que en este caso serán 10 veces, 
+porque el valor original de i es 0, y en cada iteración le sumamos 1 a i
+entonces va a impirmir en la consola:
+
+"arranca en 1"
+
+"arranca en 2"
+
+"arranca en 3"
+
+... y asi hasta llega a la ultima iteracion
+que sería "arranca en 9"
+ahi finaliza el bucle e impirmiria "Arranca la carrera"
+
+----------------------------------------------------------------------------------------------------
 

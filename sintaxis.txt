@@ -1,0 +1,161 @@
+// LET //
+
+        constructor (nombre variable) = valor 
+
+        eje:
+        let numero = 1
+
+        *declarar variable (numero)
+        *definir variable (1)
+
+---------------------------------------------------------------------------
+/// prompt ///
+
+        let variable = prompt ("...........")
+
+        ej: 
+        let nombreIngresado = prompt ("ingrese su nombre")   → entrada  
+
+--------------------------------------------------------------------------
+/// console.log ////
+
+        console.log ("..........")  → mensaje q se muestra x consola.
+
+
+        ejemplos: 
+        console.log (' ${...} ${....}')  → comillas simples y espacios.  → comillas simples pero de costado!!! (``)
+        console.log (nombre + " " + apellido + " " + lenguaje) → comillas como espacios. 
+        console.log (numero1 + numero2) → sin comillas
+        console.log (nombre) → sin comillas
+
+
+-----------------------------------------------------------------------------
+/// alert ////
+
+        alert (".......")   → mensaje de salida 
+
+        alert ("hola" + nombre)   → holavaleria 
+        alert ("hola" + " " + nombre)  → hola valeria 
+
+        *tambien se puede declarar afuera de alert lo que va a ir dentro del alerta: 
+            let salida = valor + " " + ingresada 
+            alert (salida)
+
+
+---------------------------------------------------------------------------
+
+/// parseo ////
+
+Number
+ParseInt
+Parsefloat
+
+Number (prompt (".....)) → se pide un numero...
+
+*pero despues si queremos verificar que sea un numero le ponemos ParseInt:
+ejemplo q dio Lu:
+
+if (ParseInt (num1)) {
+    sentencia......
+}
+
+tambien lo que puede pasar es que figura is NAN (not a number)
+pero depende de cada uno a la hora de programar.
+
+--------------------------------------------------------------------------------
+
+//// operaciones + - * /  -----------------////
+
+        let numero1 = Number (prompt ("ingrese 1er numero"))   → se parsea el string a numero con "Number"
+        let numero2 = Number (prompt ("ingrese 2do numero))   → se parsea el string a numero con "Number"
+
+        let suma = numero1 + numero2
+        let resta = numero1 - numero2
+        let multiplicacion = numero1 * numero2
+        let division = numero1 / numero2
+
+
+--------------------------------------------------------------------------------
+/// if - else - if else ------ CONDICIONALES ////
+
+            if (....) {
+                    console.log = ("sentencia 1")
+            } else {
+                    console.log = ("sentencia 2")
+            }
+
+            iguales ==
+            distintos !=
+            mayor >
+            menor <
+            mayor igual >=
+            menor igual <= 
+            estrictamente igual ===
+            estrictamente distinto !==
+
+-------------------------------------------------------------------------------
+///  % ----- modulo ----- numeros pares /// 
+
+        let num3 = Number (prompt ("ingrese numero"))
+
+        <<DIVISIBLE X 2>>>
+        if (num3 % 2 == 0) {
+            console.log ("este numero es par")
+        } else { 
+            console.log ("es numero es impar")
+        }
+
+        <<<DIVISIBLE X 4>>
+        % 4 === 0 
+        año bisiesto
+
+-------------------------------------------------------------------
+//  && - || - ! -------COMPARADORES COMPUESTOS //// 
+
+        &&  → Y 
+        || → O 
+        ! → SINO 
+
+        ejemplo con (||)
+
+                let letra = prompt ("ingrese letra")
+
+                if (letra === 'a' || letra === 'e' || letra === 'i' || letra === 'o' || letra === 'u') {
+                    
+                    console.log ("esta letra es una vocal")
+
+                } else {
+                    console.log ("es una consonante")
+                }
+
+-------------------------------------------------------------------------
+
+/// for /// while ///  do...while //// ------ CICLOS / BLUCLES / ITERACION ////
+
+for (inicio; condicion; iteracion) {
+    sentencia 
+}
+
+    ejemplo: 
+
+    let numero = 0 
+    for (0; numero < 10; numero = numero +1) {
+        console.log ("............")
+    }
+
+    resumida: 
+    for (let numero = 0; numero < 10; numero++) {
+        console.log ("....")
+    }
+
+    resumida 2:
+    for (let i = 0; i < 10; i++) {
+        console.log ("......")
+    }
+
+-----------------------------------------------------------------------------
+
+
+
+
+

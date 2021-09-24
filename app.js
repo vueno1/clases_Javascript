@@ -1,92 +1,74 @@
-//entrega 1...................................................
-// consulta nombre al usuario....
+// DESAFIO 3 //
 
-let nombre = prompt ("cual es tu nombre?");
-let bienvenida = "bienvenida" + " " + nombre;
-alert (bienvenida);
+//EJEMPLO 1) → con "for"
 
-// consulta numero de socio....
+// designo las motos y nombre de los chicos del delivery ......
+let moto1 = "pablo"
+let moto2 = "gaston"
+let moto3 = "rocio"
 
-let numeroDeSocio = prompt ("ingrese numero de socio")
-let socio = "socio" + " " + numeroDeSocio;
+// hago el conteo para los pedidos...
+for (let i = 1; i < 4; i++) {
 
-console.log (nombre + " " + socio);
+    // pregunto nombre y barrio al que hace el pedido.....
+    // radio entre recoleta, palermo y belgrano....
+    let usuario = prompt ("ingrese nombre")
+    let barrio = prompt ("ingrese barrio")
 
-// consulta edad y calculo ....
-let edadSocio = prompt ("indique su edad");
+    // declaro motoUsuario para luego redefinirlo segun corresponda x barrio....
+    let motoUsuario = "disponible"
 
-let añoActual = 2021;
-let calculoAñoNacimiento = añoActual - edadSocio;
-let nacimientoParrafo = "usted nacio en el año";
-console.log (nacimientoParrafo + " " + calculoAñoNacimiento);
+    // uso el if para designar x barrios a que moto le corresponde....
+    if (barrio == "recoleta") {
+        motoUsuario = moto1
+    } else if (barrio == "palermo") {
+        motoUsuario = moto2
+    } else {
+        motoUsuario = moto3
+    }
 
-// calculo egresado escuela .....
-
-let añoFinEscolar = Number (prompt ("indique año de egresado escuela"));
-let calculoAñoFinEscolar = añoActual - añoFinEscolar;
-console.log (nombre + " " + "finalizo la escuela hace" + " " + calculoAñoFinEscolar + " " + "años");
-
-
-//-------------------------------------------------------------------------------------------------------
-// entrega 2.........................................
-
-// pedido de merchandising.....
-
-const merch1 = "cuaderno"
-const merch2 = "llavero"
-const merch3 = "sticker"
-const merch4 = "medias"
-
-let merchandising = prompt ("que producto elige?")
-
-if (merchandising == merch1 || merchandising == merch2 || merchandising == merch3) {
-    console.log ('disponible');
-}  else {
-    console.log ('no esta disponible')
+    // envio al usuario numero de pedido y nombre de la moto asignada......
+    alert ("su pedido n°" + " " + i + "se lo lleva"  + " " + motoUsuario)    
 }
 
-let merch1Cant = 2
-let merch2Cant = 1
-let merch3Cant = 3
-let merch4Cant = 0
+/// finalizo los pedidos por el dia. 
+console.log ("no se pueden hacer mas pedidos, gracias!")
 
-let merchChoose = Number (prompt ("cantidad?"))
 
-//eleccion cuadernos ....................
-if (merchChoose === merch1 || merchChoose ===1) {
-    console.log ("1 unidad en el carrito")
-} else if (merchChoose === merch1 || merchChoose ===2) {
-    console.log ("2 unidades en el carrito")
-} else {
-    console.log ("no hay suficiente")
+//-----------------------------------------------------------------------------------------------
+
+//EJEMPLO 2) → CON "while"..............
+
+// declaro que numero de usuario valido es 2563
+let usuario = 2563
+
+// pregunto al usario numero.....
+let ingresoUsusario = prompt ("por favor, ingrese su numero de usuario")
+
+// mientras que el numero de usuario es incorrecto, se le da el mensaje de alerta x error. 
+while (ingresoUsusario != usuario) {
+    alert (`${ingresoUsusario} + es un numero incorrecto`)
+
+    // y vuelvo a preguntar, hasta que el usuario escriba el n° correcto....
+    ingresoUsusario = prompt ("por favor, vuelva a ingresar numero de usuario")
 }
 
-//eleccion llavero..........
-if (merchChoose === merch2 || merchChoose ===1) {
-    console.log ("1 unidad en el carrito")
-} else {
-    console.log ("no hay suficiente")
+console.log ("hola!, bienvenido!")
+
+
+//-----------------------------------------------------------------------------------------------
+
+//EJEMPLO 3) → con "while"........
+
+//declaro "comensales"
+let comensales = 1
+
+//mientras la cantidad de comensales no supere a 10, pueden seguir ingresando personas al restaurante....
+while (comensales < 10) {
+    console.log (`ha ingresado ${comensales} comensale/s al restaurante`)
+    comensales++
 }
 
-//eleccion stickers.......
-if (merchChoose === merch3 || merchChoose ===1) {
-    console.log ("1 unidad en el carrito")
-} else if (merchChoose === merch3 || merchChoose ===2) {
-    console.log ("2 unidades en el carrito")
-} else if (merchChoose === merch3 || merchChoose ===3) {
-    console.log ("3 unidades en el carrito")
-} else {
-    console.log ("no hay suficiente")
-}
-
-
-
-
-
-
-
-
-
-
-
+//en que el caso que ya no se cumpla la condicion, se muestra el siguiente mensaje:
+console.log ("no hay disponibilidad!")
 
