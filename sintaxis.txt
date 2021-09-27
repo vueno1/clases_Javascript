@@ -155,6 +155,22 @@ for (inicio; condicion; iteracion) {
 
 -----------------------------------------------------------------------------
 
+///funciones → declaradas ////
+
+function saludar () {
+    console.log ("hola")
+}
+
+saludar ()  → llamar a la funcion.
+
+ejemplo: 
+function imprimir () {
+    let dato = prompt ("ingrese da"to")
+    let resultado = dato + "......"
+    console.log (resultado)
+}
+
+imprimir () → llamar a la funcion 
 
 
 
