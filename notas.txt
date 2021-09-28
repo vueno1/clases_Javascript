@@ -403,9 +403,5 @@ Ejemplo de procesamiento: determinar si un número es múltiplo
 
 ------------------------------------------------------------
 
-1- usuario/ nombre, apellido / edad y saber si esa adulto (ingreso usuario)
-2 - contraseña 
-
-3- calcular precio de juegos, con iva y cantidad de juegos. 
 
 

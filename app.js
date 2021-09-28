@@ -75,8 +75,11 @@ if (productoSeleccion === producto1) {
     alert (`no esta disponible`)
 }
 
+
 // precio final para el usuario mostrado en consola.....
 console.log (precioFinal)
+
+//------------------------------------------------------------------------------------------------------
 
 // declaro cupon de descuento y consulto al ususario si tiene uno....
 let descuentoCupon = 2525
@@ -95,6 +98,5 @@ if (consultaDescuento === descuentoCupon) {
     alert (`No corresponde descuento, precio final = ${precioFinal}`)
 }
 
-
-
+//--------------------------------------------------------------------------------------------------
 
