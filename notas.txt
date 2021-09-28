@@ -400,3 +400,12 @@ Ejemplo de procesamiento: cálculo de IVA
 1) Ingresar precio de costo - 2) Sumar IVA - 3) Mostrar precio calculado.
 Ejemplo de procesamiento: determinar si un número es múltiplo 
 1) Ingresar números a verificar - 2) ¿Es múltiplo? - 3) Mostrar resultado.
+
+------------------------------------------------------------
+
+1- usuario/ nombre, apellido / edad y saber si esa adulto (ingreso usuario)
+2 - contraseña 
+
+3- calcular precio de juegos, con iva y cantidad de juegos. 
+
+
