@@ -1,102 +1,83 @@
-//-----------
-// entrega 4 - funciones 
+/*****************************************************************
+* 
+* 
+-----------PAGINA DE VENTA DE VIDEOJUEGOS + MERCHANDISING---------
+*
+*
+******************************************************************/
 
-// boton: inicio de sesion: ingreso de datos del usuario.///
+//-----------constructor de usuarios --------------------------------
+class Usuarios {
 
-//declaro nombre y contraseñas correctas del usuario (ingresados en el registro)
+    constructor (nombrePP, apellidoPP, mailPP, idPP, contraseñaPP) {
+        this.nombreUs = nombrePP;
+        this.apellidoUs = apellidoPP;
+        this.mailUs = mailPP;
+        this.idUs = idPP;
+        this.contraseñaUs = contraseñaPP;
+    }
+}
 
-let usuario1 = "valeria"
-let contraseña1 = 2536
+//---------declaracion de propiedades para luego preguntarlas x prompt----
+let nombreUs = prompt ("ingrese nombre:")
+let apellidoUs = prompt ("ingrese apellido:")
+let mailUs = prompt ("ingrese email:")
+let idUs = prompt ("seleccione su ID")
+let contraseñaUs = prompt ("ingrese contraseña:")
 
-// funcion para pedir datos al momento de iniciar sesion:
-// usuario + contraseña
-function ingreso () {
+//---------llamo al Constructor y creo nuevo Usuario1----------------------
+const usuario1 = new Usuarios (nombreUs, apellidoUs, mailUs, idUs, contraseñaUs)
 
-    //pido datos al usuario
-    let nombreUs = prompt ("ingrese id usuario")
-    let contraseñaUs = Number (prompt ("ingrese contraseña"))
+//--------lo muestro x consola y x alert------------------------------------
+console.log (usuario1)
+alert (`Bienvenida ${nombreUs}!`)
 
-    // dato ingresado a minuscula
-    let nombreMin = nombreUs.toLowerCase ()
+
+
+//------------se vuelve a pedir ingreso a la pagina-----------------------
+let usuarioId = prompt ("ingrese ID")
+let contraseñaId = prompt ("ingrese contraseña")
+
+//-----------se corrobora si los datos son correctos----------------------
+if (usuarioId === idUs & contraseñaId === contraseñaUs) {
+    console.log ("bienvenido de vuelta!")
+} else {
+    console.log ("ID o contraseña incorrecto")
+}
+
+/****************************************************************************
+* 
+*************************************************************************** */
+//----------creacion del constructor de Productos--------------------------
+class Productos {
     
-    // condiciones de datos ingresados
-    if (nombreMin === usuario1 && contraseñaUs === contraseña1) {
-        console.log (`bienvenida ${nombreMin}`)
-        return `bienvenida ${nombreMin}`
-
-    } else {
-        console.log ("usuario o contraseña incorrectos")
-        return "usuario o contraseña incorrectos"
+    constructor (tituloPP, generoPP, precioPP, stockPP) {
+        this.titulo = tituloPP;
+        this.genero = generoPP;
+        this.precio = precioPP;
+        this.stock = stockPP;
     }
 
+    comprar (cantidad) {
+
+        if (this.stock <= 0) {
+            console.log ("no hay stock!")
+
+        }   else {
+            this.stock = this.stock - cantidad
+            console.log (`carrito de compras: ${this.titulo} a Usd: ${this.precio*cantidad}`)
+        }
+    }
 }
 
-ingreso ();
+//----------se cargan productos = juegos------------------------------------
 
-//--------------------------------------------------------------------------------------------------
+const juego1 = new Productos ("the last of us 2", "violencia", 26, 5)
+const juego2 = new Productos ("fifa 22", "deportes", 60, 10)
+const juego3 = new Productos ("horizon zero dawn", "aventura", 20, 2)
+const juego4 = new Productos ("lego marvels", "infantil", 20, 5)
 
-// compra de producto: ////
+//---------muestro x consola el producto comprado y cantidad---------------
+console.log (juego1.comprar (2))
 
-//declaro productos a vender en tienda de juegos.....
-let producto1 = "the last of us"
-let producto2 = "god of war"
-let producto3 = "ghost of tsushima"
-
-//declaro precios x unidad (neto)
-let netoPrecio1 = 500
-let netoPrecio2 = 600
-let netoPrecio3 = 800
-
-// creo funciones de suma, IVA y multiplicacion....
-const suma = (neto, iva) => neto + iva ;
-const iva = (x) => x *0.21
-const mult = (unidad, cantidad) => unidad * cantidad
-
-// pidio informacion al usuario 
-let productoSeleccion = prompt ("elija juego")
-let productoCantidad = Number (prompt ("cantidad?"))
-
-let precioFinal = 0
-
-// uso condicionales segun precio elegido x el usuario 
-if (productoSeleccion === producto1) {
-    precioFinal = mult (suma (netoPrecio1, iva (netoPrecio1)), productoCantidad)
-    alert (`carrito de compras: ${precioFinal}`)
-
-} else if (productoSeleccion === producto2) {
-    precioFinal = mult (suma (netoPrecio2, iva (netoPrecio2)), productoCantidad)
-    alert (`carrito de compras: ${precioFinal}`)    
-
-} else if (productoSeleccion === producto3) {
-    precioFinal = mult (suma (netoPrecio3, iva (netoPrecio3)), productoCantidad)
-    alert (`carrito de compras: ${precioFinal}`) 
-
-} else {
-    alert (`no esta disponible`)
-}
-
-
-// precio final para el usuario mostrado en consola.....
-console.log (precioFinal)
-
-//------------------------------------------------------------------------------------------------------
-
-// declaro cupon de descuento y consulto al ususario si tiene uno....
-let descuentoCupon = 2525
-let consultaDescuento = Number (prompt ("ingrese numero descuento"))
-
-let precioConDescuento = 0
-
-// funcion para descuento......
-const descuento = (y) => y *0.9
-
-// condicional en el caso que tenga o no cupon de descuento y muestro precio final segun indique.
-if (consultaDescuento === descuentoCupon) {
-    precioConDescuento = descuento (precioFinal)
-    alert (`precio con 10% descuento = ${precioConDescuento}`)
-} else {
-    alert (`No corresponde descuento, precio final = ${precioFinal}`)
-}
-
-//--------------------------------------------------------------------------------------------------
 
