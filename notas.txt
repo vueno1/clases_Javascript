@@ -550,3 +550,70 @@ let precioFinal = 0
 
 
 ********************************************************************************
+
+const juego1 = new Productos ("the last of us 2", "violencia", 26, 5)
+const juego2 = new Productos ("fifa 22", "deportes", 60, 10)
+const juego3 = new Productos ("horizon zero dawn", "aventura", 20, 2)
+const juego4 = new Productos ("lego marvels", "infantil", 20, 5)
+
+
+
+    comprar (cantidad) {
+
+        if (this.stock <= 0) {
+            console.log ("no hay stock!")
+
+        }   else {
+            this.stock = this.stock - cantidad
+            console.log (`carrito de compras: ${this.titulo} a Usd: ${this.precio*cantidad}`)
+        }
+    }
+
+
+    ------------------------------------------------------------------
+
+II)
+
+Sugerencia: recuerda que para ordenar una estructura de datos, los elementos deben ser del mismo tipo. Puedes emplear la función sort() para armar el algoritmo.
+
+>> Consigna: codifica una función cuyas instrucciones permitan ordenar una colección (array). Preferentemente, recibir el criterio de ordenamiento por parámetro, y mostrar el resultado del procesamiento en una salida.
+>>Aspectos a incluir en el entregable:
+Archivo HTML y archivo JavaScript referenciado, que incluya la definición un array de objetos, la declaración y llamada de una función que ordene la colección. 
+>>Ejemplo de criterio de ordenamiento:
+1) Array de objetos “Productos”. Ordenar por menor precio.
+2) Array de objetos “Personas”. Ordenar por mayor edad.
+3) Array de objetos “Date”. Ordenar por menor fecha.
+
+III) 
+Deberás entregar la Estructura HTML y CSS del proyecto, las variables de JS necesarias y los objetos de JS, correspondientes a la primera entrega de tu proyecto final.
+
+Sugerencia: Si bien, por el momento solo podemos hacer entradas con prompt() y salidas con alert() o console.log(), es suficiente para empezar a pensar el proceso a simular en términos de entradas, variables, estructuras, funciones, métodos y salidas. Verificar Rúbrica
+
+>>Objetivos Generales:
+    -Codificar la funcionalidad inicial del simulador. 
+    -Identificar el flujo de trabajo del script en términos de captura de entradas ingresadas por el usuario, procesamiento esencial del simulador y notificación de resultados en forma de salida.
+
+>>Objetivos Específicos:
+    -Capturar entradas mediante prompt().
+    -Declarar variables y objetos necesarios para simular el proceso seleccionado.
+    -Crear funciones y/o métodos para realizar operaciones (suma, resta, concatenación, división, porcentaje, etc).
+    -Efectuar una salida, que es el resultado de los datos procesados, la cual puede hacerse por alert() o console.log().
+
+>>Se debe entregar:
+    Estructura HTML del proyecto. 
+    Variables de JS necesarias. 
+    Funciones esenciales del proceso a simular.
+    Objetos de JS.
+
+
+    --------------------------------------------
+
+nota del tutor: 
+
+Vale, para lograr lo que planteas primero almacena esos datos en variables. Por ej:
+
+const producto = prompt('ingrese pruducto: ')
+
+const cantidad = prompt('ingrese cantidad: ')
+
+y luego esas variables las envias como parámetros de esta manera juego1.comprar(producto, cantidad)

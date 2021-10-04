@@ -18,46 +18,86 @@ class Usuarios {
     }
 }
 
-//---------declaracion de propiedades para luego preguntarlas x prompt----
-let nombreUs = prompt ("ingrese nombre:")
-let apellidoUs = prompt ("ingrese apellido:")
-let mailUs = prompt ("ingrese email:")
-let idUs = prompt ("seleccione su ID")
-let contraseñaUs = prompt ("ingrese contraseña:")
+//------declarar listaUsuario------------------------------------
+let listaUsusario = []
 
-//---------llamo al Constructor y creo nuevo Usuario1----------------------
-const usuario1 = new Usuarios (nombreUs, apellidoUs, mailUs, idUs, contraseñaUs)
+//------declaro globalmente variables---------------------------
+let nombreUs = 0
+let apellidoUs = 0
+let mailUs = 0
+let idUs = 0
+let contraseñaUs = 0
 
-//--------lo muestro x consola y x alert------------------------------------
-console.log (usuario1)
-alert (`Bienvenida ${nombreUs}!`)
+//------funcion para agregar usuarios-------------------------------------
+const agregarUsuario = () => {
 
+    //---------declaracion de propiedades para luego preguntarlas x prompt----
+    nombreUs = prompt ("ingrese nombre:")
+    apellidoUs = prompt ("ingrese apellido:")
+    mailUs = prompt ("ingrese email:")
+    idUs = prompt ("seleccione su ID")
+    contraseñaUs = Number (prompt ("ingrese contraseña:"))
 
+    //---------llamo al Constructor y creo nuevo Usuario----------------------
+    const usuario = new Usuarios (nombreUs, apellidoUs, mailUs, idUs, contraseñaUs)
 
-//------------se vuelve a pedir ingreso a la pagina-----------------------
-let usuarioId = prompt ("ingrese ID")
-let contraseñaId = prompt ("ingrese contraseña")
+    //------voy agregando + usuarios a la lista con PUSH --------------------
+    listaUsusario.push (usuario)
 
-//-----------se corrobora si los datos son correctos----------------------
-if (usuarioId === idUs & contraseñaId === contraseñaUs) {
-    console.log ("bienvenido de vuelta!")
-} else {
-    console.log ("ID o contraseña incorrecto")
+    //--------lo muestro x alert------------------------------------
+    alert (`Bienvenide ${nombreUs}!`)
 }
+
+// -----BOTON: "agregarUsuario ()" para dicha funcion------------------
+//----------------------------------------------------------------------
+
+//-----BOTON: "listaUsuarios" para ver lista de Ususarios---------------
+
+//------------------------------------------------------------------------------------
+
+//---------funcion para iniciar sesion -------------------------------
+const inicioSesion = () => {
+
+    //pido datos al usuario---------------------------------------
+    let nombreUs = prompt ("ingrese ID:")
+    let contraseñaUs = Number (prompt ("ingrese contraseña:"))
+
+    // dato ingresado a minuscula----------------------------------
+    let nombreMin = nombreUs.toLowerCase ()
+    
+    // condiciones de datos ingresados-------------------------------
+    if (nombreMin === idUs && contraseñaUs === contraseñaUs) {
+        console.log (`bienvenida ${nombreMin}`)
+        return `bienvenida ${nombreMin}`
+
+    } else {
+        console.log ("usuario o contraseña incorrectos")
+        return "usuario o contraseña incorrectos"
+    }
+
+}
+
+//------BOTON = "inicioSesion" para ingreso del usuario al sistema-----------
+//---------------------------------------------------------------------------
 
 /****************************************************************************
 * 
+*
+*
+*
 *************************************************************************** */
+
 //----------creacion del constructor de Productos--------------------------
 class Productos {
     
     constructor (tituloPP, generoPP, precioPP, stockPP) {
-        this.titulo = tituloPP;
-        this.genero = generoPP;
+        this.nombre = tituloPP;
+        this.categoria = generoPP;
         this.precio = precioPP;
         this.stock = stockPP;
     }
 
+    //-----creo boton de compra → y comparativos segun cantidad de compra-------------------
     comprar (cantidad) {
 
         if (this.stock <= 0) {
@@ -65,19 +105,77 @@ class Productos {
 
         }   else {
             this.stock = this.stock - cantidad
-            console.log (`carrito de compras: ${this.titulo} a Usd: ${this.precio*cantidad}`)
+            console.log (`carrito de compras: ${this.nombre} a Usd: ${this.precio *cantidad}`)
         }
     }
+
+    //-------------listaProductos [n°lista].comprar (cantidad) en consola.....
+
 }
 
-//----------se cargan productos = juegos------------------------------------
+//---------declaro boton "listaProductos"--------------------------------
+let listaProductos = []
 
-const juego1 = new Productos ("the last of us 2", "violencia", 26, 5)
-const juego2 = new Productos ("fifa 22", "deportes", 60, 10)
-const juego3 = new Productos ("horizon zero dawn", "aventura", 20, 2)
-const juego4 = new Productos ("lego marvels", "infantil", 20, 5)
+//---------creo el boton "agregarProductos" para que active los prompt----
+const agregarProductos = () => {
 
-//---------muestro x consola el producto comprado y cantidad---------------
-console.log (juego1.comprar (2))
+    //-----pido datos a ingresar----------------------
+    let nombre = prompt ("ingrese nombre del producto:")
+    let categoria = prompt ("ingrese categoria:")
+    let precio = Number (prompt ("ingrese precio:"))
+    let stock = Number (prompt ("actualice stock:"))
 
+    let nombreProductoMin = nombre.toLowerCase ()
+    let categoriaProductoMin = categoria.toLowerCase ()
+
+
+    //---por cada dato ingresado, creo un objeto a mi lista----------------
+    const catalogo = new Productos (nombreProductoMin, categoriaProductoMin, precio, stock)
+
+    //---agrego mas datos a mi lista de objetos-------------------------------
+    listaProductos.push (catalogo)
+
+    
+//-------BOTON = "agregarProductos" para ir agregando productos x prompt-----------
+//------BOTON = "listaProductos" para mostrar la lista de productos ingresados-----
+
+//----------------------------------------------------------------------------------------------------
+
+
+    //-----------ordeno la lista alfabeticamente--------------------------
+    listaProductos.sort ( (a,b) => {
+
+        if (a.nombre > b.nombre) {
+            return 1        
+        }
+    
+        if (a.nombre < b.nombre) {
+            return -1
+        }
+         
+        return 0
+    }
+    ) 
+    
+    //------lo muestro en consola
+    console.log (listaProductos)
+
+    //----------ordeno por precio menor a mayor ----------------------------
+    listaProductos.sort ( (a,b) => {
+        
+        if (a.precio < b.precio) {
+            return -1
+        } 
+
+        if (a.precio > b.precio) {
+            return 1
+        }
+
+        return 0
+    }
+    )
+    //----lo muestro en consola
+    console.log (listaProductos)
+
+}
 

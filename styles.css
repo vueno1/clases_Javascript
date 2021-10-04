@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+/*--------header----------------------*/
+
+.header {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+}
+
+.headerBarraNegra {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: end;
+}
+
+.headerBarraNegra h1 {
+    font-size: 2 0px;
+}
+
+.headerNav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.headerLogo {
+    height: 50px;    
+}
+
+.headerNavegador {
+    display: flex;
+    width: 100%;
+}
+
+.headerLista {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.headerNavegador ul a {
+    color: black;
+    list-style-type: none;
+    text-decoration: none;
+    display: flex;
+}
+
+.headerNavDerecha {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+
+
+/*--------------index main--------------------------*/
+
+.mainIndex {
+    padding-top: 100px;
+}
+
+.mainImagenPropaganda {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
