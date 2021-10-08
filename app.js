@@ -83,16 +83,21 @@ const inicioSesion = () => {
 /****************************************************************************
 * 
 *
-*
+*******************PRODUCTOS************************************************
 *
 *************************************************************************** */
 
 //----------creacion del constructor de Productos--------------------------
 class Productos {
     
-    constructor (tituloPP, generoPP, precioPP, stockPP) {
-        this.nombre = tituloPP;
-        this.categoria = generoPP;
+    constructor ({
+        nombrePP, 
+        categoriaPP, 
+        precioPP, 
+        stockPP
+    }) {
+        this.nombre = nombrePP;
+        this.categoria = categoriaPP;
         this.precio = precioPP;
         this.stock = stockPP;
     }
@@ -113,69 +118,52 @@ class Productos {
 
 }
 
-//---------declaro boton "listaProductos"--------------------------------
-let listaProductos = []
+//---------declaro constante = boton "listaProductos"--------------------------------
+const listaProductos = []
 
 //---------creo el boton "agregarProductos" para que active los prompt----
 const agregarProductos = () => {
 
-    //-----pido datos a ingresar----------------------
-    let nombre = prompt ("ingrese nombre del producto:")
-    let categoria = prompt ("ingrese categoria:")
-    let precio = Number (prompt ("ingrese precio:"))
-    let stock = Number (prompt ("actualice stock:"))
+        //-----pido datos a ingresar----------------------
+        const nombreProducto = prompt ("ingrese nombre del producto:")
+        const categoriaProducto = prompt ("ingrese categoria:")
+        const precioProducto = Number (prompt ("ingrese precio:"))
+        const stockProducto = Number (prompt ("actualice stock:"))
 
-    let nombreProductoMin = nombre.toLowerCase ()
-    let categoriaProductoMin = categoria.toLowerCase ()
+        //-------BOTON = "agregarProductos" para ir agregando productos x prompt-----------
+        //------BOTON = "listaProductos" para mostrar la lista de productos ingresados-----
 
+        //---por cada dato ingresado, creo un objeto a mi lista----------------
+        const catalogo = new Productos ( {
+            nombre: nombreProducto,
+            precio: precioProducto,
+            categoria: categoriaProducto,
+            stock: stockProducto
+        })
 
-    //---por cada dato ingresado, creo un objeto a mi lista----------------
-    const catalogo = new Productos (nombreProductoMin, categoriaProductoMin, precio, stock)
+        listaProductos.push (catalogo)
 
-    //---agrego mas datos a mi lista de objetos-------------------------------
-    listaProductos.push (catalogo)
+        /*
 
-    
-//-------BOTON = "agregarProductos" para ir agregando productos x prompt-----------
-//------BOTON = "listaProductos" para mostrar la lista de productos ingresados-----
+        //---creo el condicional para guardar la informacion ingresada--------------
+        //-----si no hay informacion en el storage, lo guardo.
+        if (localStorage.getItem("dato") == null) { // si busco en local storage y no hay informacion.... = null
 
-//----------------------------------------------------------------------------------------------------
+            listaProductos.push(catalogo) // pusheo info y agrego a listaproducto.
 
+            localStorage.setItem("dato", JSON.stringify(listaProductos)) // y esa informacion de "listaproductos" la transformo a JSON y 
+            //guardo en local storage.
 
-    //-----------ordeno la lista alfabeticamente--------------------------
-    listaProductos.sort ( (a,b) => {
+        } else { // pero, si el local storage no esta vacio.
 
-        if (a.nombre > b.nombre) {
-            return 1        
+            const nuevalista = JSON.parse(localStorage.getItem("dato")) // creo una nueva array (nuevalista....) donde
+            //parseo lo que esta en local storage a nombre de "producto" 
+
+            nuevalista.push(catalogo) // pusheo ese nuevo elemento a mi nueva array
+
+            localStorage.setItem("dato", JSON.stringify(nuevalista))  // y guardo en local storage pasando la info a JSON.
+
         }
-    
-        if (a.nombre < b.nombre) {
-            return -1
-        }
-         
-        return 0
-    }
-    ) 
-    
-    //------lo muestro en consola
-    console.log (listaProductos)
-
-    //----------ordeno por precio menor a mayor ----------------------------
-    listaProductos.sort ( (a,b) => {
-        
-        if (a.precio < b.precio) {
-            return -1
-        } 
-
-        if (a.precio > b.precio) {
-            return 1
-        }
-
-        return 0
-    }
-    )
-    //----lo muestro en consola
-    console.log (listaProductos)
-
+        */
 }
 

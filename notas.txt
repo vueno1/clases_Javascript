@@ -617,3 +617,42 @@ const producto = prompt('ingrese pruducto: ')
 const cantidad = prompt('ingrese cantidad: ')
 
 y luego esas variables las envias como parámetros de esta manera juego1.comprar(producto, cantidad)
+
+--------------------------------------------------------------------------------------------------
+
+ //-----------ordeno la lista alfabeticamente--------------------------
+    listaProductos.sort ( (a,b) => {
+
+        if (a.nombre > b.nombre) {
+            return 1        
+        }
+    
+        if (a.nombre < b.nombre) {
+            return -1
+        }
+         
+        return 0
+    }
+    ) 
+    
+    //------lo muestro en consola
+    console.log (listaProductos)
+
+    //----------ordeno por precio menor a mayor ----------------------------
+    listaProductos.sort ( (a,b) => {
+        
+        if (a.precio < b.precio) {
+            return -1
+        } 
+
+        if (a.precio > b.precio) {
+            return 1
+        }
+
+        return 0
+    }
+    )
+    //----lo muestro en consola
+    console.log (listaProductos)
+
+    -----------------------------------------------------------------------------------------------------------

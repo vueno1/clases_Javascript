@@ -19,122 +19,207 @@
 
 <body>
 
-    <!-- HEADER-->
+    <!--////////////////////////////////////////////////////////////////////////////////////////-->
+    <!--------HEADER----------------------------------------------->
+    <!--////////////////////////////////////////////////////////////////////////////////////////--> 
 
     <header class="header">
 
         <div class="headerBarraNegra">
-            <h1>universogames</h1>
+            <h1>Universo Games</h1>
         </div>
 
        <section class="headerNav">
 
             <div class="headerLogo">
                 <a href="index.html">
-                    <h1><img class="headerLogo" src="source/headerLogo.jpeg" alt="headerLogo"></h1>
+                    <h1><img class="headerLogo" src="source/logos/logoUniverso2.png" alt="headerLogo"></h1>
                 </a>
             </div>
 
             <nav class="headerNavegador">
                 <ul class="headerLista">
-                    <a href=""><li>games</li></a>
-                    <a href=""><li>electronica</li></a>
-                    <a href=""><li>noticias</li></a>
-                    <a href=""><li>tienda</li></a>
-                    <a href=""><li>nosotros</li></a>
+                    <a href=""><li>JUEGOS</li></a>
+                    <a href=""><li>TECNOLOGIA</li></a>
+                    <a href=""><li>NOTICIAS</li></a>
+                    <a href=""><li>TIENDA</li></a>
+                    <a href=""><li>NOSOTROS</li></a>
                 </ul>
             </nav>
 
-            <div class="headerNavDerecha">                
+            <div class="headerNavDerecha">  
                 <div>
-                    <input type="text" name="buscador" placeholder="Buscador">
-                    <button class="inicioSesion">iniciar Sesion</button>
-                    <button class="carritoCompras">carrito de compras</button>
+                    <button id="botonInicioSesion" class="inicioSesion">Iniciar Sesión</button>
+                </div>              
+
+                <div>
+                    <input id="botonBusqueda" type="text" name="buscador" placeholder="Buscador">
                 </div>
+            
+               
             </div>
 
         </section>  
-            
+
     </header>
 
+    <!--////////////////////////////////////////////////////////////////////////////////////////-->
+        <!----------COMIENZO DE MAIN------------------------------------>
+    <!--////////////////////////////////////////////////////////////////////////////////////////--> 
 
-    <!--MAIN-->
     <main class="mainIndex"> 
 
-        <!--1°seccion = slice de imagenes con distintos videojuegos-->
+        <!--////////////////////////////////////////////////////////////////////////////////////////-->
+          <!--1° SECCION = IMAGEN SLICE------------------------------------------------>
+        <!--////////////////////////////////////////////////////////////////////////////////////////--> 
+
         <section class="mainImagenPropaganda">
-            <img src="source/juegos/TLOU2/01.jpg" alt="">
+            <img src="source/juegos/TLOU2/06.jpg" alt="">
         </section>
 
-        <!--2°seccion = muestra de juegos con precios incluidos -->
+        <!--////////////////////////////////////////////////////////////////////////////////////////-->
+          <!--2° SECCION = MUESTRA DE LOS JUEGOS------------------------------------------------>
+        <!--////////////////////////////////////////////////////////////////////////////////////////--> 
+
+
         <section class="mainJuegosMuestra">
 
-            <h3>VIDEOJUEGOS</h3>
+            <h2>ULTIMOS JUEGOS</h2>
 
-            <div>
-                <img src="" alt="">
-            </div>
+            <div class="mainJuegoMuestraGrid">
 
-            <div>
-                <img src="" alt="">
-            </div>
-
-            <div>
-                <img src="" alt="">
+                <div>
+                    <img id="juegoMuestra" src="source/juegos/TLOU2/01.jpg" alt="">
+                </div>
+    
+                <div>
+                    <img id="juegoMuestra" src="source/juegos/TLOU2/01.jpg" alt="">
+                </div>
+    
+                <div>
+                    <img id="juegoMuestra" src="source/juegos/TLOU2/01.jpg" alt="">
+                </div>
             </div>
 
         </section>
 
-        <!--3°seccion = noticias de la actualidad-->
+        <!--////////////////////////////////////////////////////////////////////////////////////////-->
+          <!--3° SECCION = COMENTARIOS SOBRE UN JUEGO------------------------------------------------>
+        <!--////////////////////////////////////////////////////////////////////////////////////////--> 
+
+        <section class="mainComentarios">
+
+            <div class="mainComentariosImg">
+                <img src="source/juegos/TLOU2/02.jpg" alt="">
+            </div>
+
+            <div class="mainComentarios2">
+                <img src="" alt="">
+                <p> UN INCREIBLE TRABAJO ARTISTICO!</p>
+            </div>
+
+        </section>
+
+        <!--////////////////////////////////////////////////////////////////////////////////////////-->
+          <!--4° SECCION = NOTICIAS------------------------------------------------>
+        <!--////////////////////////////////////////////////////////////////////////////////////////-->
+
         <section class="mainNoticias">
 
-            <h3>ACTUALIDAD</h3>
-            <p>..................</p>
-            <p>.....................</p>
+            <h2>ULTIMAS NOTICIAS</h2>
+
+            <div class="mainNoticiasCuadros">
+
+                <div class="mainNoticiasCuadrosDentro">
+                    <img id="mainNoticiasImg" src="source/juegos/TLOU2/03.jpg" alt="">
+                    <div>
+                        <h3>NOTICIA 1</h3>
+                        <p> este juego bla bla bla</p>
+                        <span>05/oct 2021</span>
+                    </div>
+                </div>
+    
+                <div class="mainNoticiasCuadrosDentro">
+                    <img id="mainNoticiasImg" src="source/juegos/TLOU2/03.jpg" alt="">
+                    <div>
+                        <h3>NOTICIA 1</h3>
+                        <p> este juego bla bla bla</p>
+                        <span>05/oct 2021</span>
+                    </div>
+                </div>
+    
+                <div class="mainNoticiasCuadrosDentro">
+                    <img id="mainNoticiasImg" src="source/juegos/TLOU2/03.jpg" alt="">
+                    <div>
+                        <h3>NOTICIA 1</h3>
+                        <p> este juego bla bla bla</p>
+                        <span>05/oct 2021</span>
+                    </div>
+                </div>
+
+            </div>
 
         </section>
 
-        <!--4°seccion = comentarios sobre un videojuego en particular -->
-        <section class="mainNoticias2">
+        <!--////////////////////////////////////////////////////////////////////////////////////////-->
+          <!--SECCION = ------------------------------------------------>
+        <!--////////////////////////////////////////////////////////////////////////////////////////--> 
 
-        </section>
-
-        <!--5° seccion = electronica-->
         <section class="mainElectronica">
 
-        </section>
+            <h2>TECNOLOGIA</h2>
 
-        <!--6°seccion = merchandising-->
-        <section class="mainMerch">
+            <div class="mainElectronicaCuadros">
+
+                <div>
+                    <img id="mainElectroImg" src="source/juegos/TLOU2/05.jpg" alt="">
+                </div>
+    
+                <div>
+                    <img id="mainElectroImg" src="source/juegos/TLOU2/05.jpg" alt="">
+                </div>
+    
+                <div>
+                    <img id="mainElectroImg" src="source/juegos/TLOU2/05.jpg" alt="">
+                </div>
+
+            </div>
 
         </section>
 
     </main>
 
+
+    <!--////////////////////////////////////////////////////////////////////////////////////////-->
+    <!-----------FOOTER------------------------------------------------>
+    <!--////////////////////////////////////////////////////////////////////////////////////////--> 
+
     <footer class="footer">
 
-        <div class="footerLogo">
-            <img src="source/headerLogo.jpeg" alt="">
-        </div>
-
-        <div class="footerDireccion">
-            <p>av.......</p>
-            <p>buenos aires </p>
-            <p>argentina</p>
-            <p>tel: 555555</p>
-
-        </div>
-
         <div class="footerRedesSociales">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">           
+
+            <img src="source/logos/twitterLogo_Mesa de trabajo 1.png" alt="" height="100">
+            <img src="source/logos/instagram_Mesa de trabajo 1 copia.png" alt="" height="100">
+            <img src="source/logos/youtube_Mesa de trabajo 1 copia 2.png" alt="" height="100"> 
+            <img src="source/logos/twitchLogo_Mesa de trabajo 1 copia 3.png" alt="" height="100">          
 
         </div>
 
-    </footer>
+        <div class="footerBarraFinal">
 
+            <div class="footerLogo">
+                <img src="" alt="">
+            </div>
     
+            <div class="footerDireccion">
+                <h3>UNIVERSO GAMES</h3>
+                <p>Direccion: Av. Cordoba 5555, CABA - Buenos Aires - Argentina</p>
+                <p>tel: 555555</p>
+                <p>mail: consultas@universogames.com.ar</p>
+            </div>
+
+        </div>
+    </footer>    
 
     <script src="app.js"></script>
 </body>
