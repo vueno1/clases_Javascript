@@ -656,3 +656,22 @@ y luego esas variables las envias como parámetros de esta manera juego1.comprar
     console.log (listaProductos)
 
     -----------------------------------------------------------------------------------------------------------
+
+Crear elementos manipulando el DOM a partir de la informaciòn de tus objetos.
+Modificar etiquetas existentes en función del resultado de operaciones.
+
+modificando, agregando o eliminado elementos.
+>>Ejemplo:
+Podemos crear elementos HTML en función del listado de nuestros objetos identificados en la clase 6.
+Establecer un mensaje de bienvenida aleatorio usando un array de mensajes.
+Capturar una o màs entradas por promp() y mostrarlas en el HTML, modificando el DOM
+
+-----------------------------------------------------------------------------------------------------------
+
+//-------cambios en la seccion: NOTICIAS CUADROS DENTRO-----------------------------------------------------
+//document.getElementsByClassName ("mainNoticiasCuadrosDentro")[1].style.backgroundColor = "grey" //cambios en el fondo
+//document.getElementsByClassName ("mainNoticiasCuadrosDentro")[1].setAttribute ("class", "adicional") // agrego bordes x clase.
+
+//document.getElementsByTagName ("h3")[1].style.backgroundColor = "blue" // cambios en el h3
+//document.getElementsByTagName ("div")[15].style.textAlign = "center"  // alinear al centro texto
+
