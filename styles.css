@@ -283,3 +283,32 @@
     font-weight: bold;
     padding: 20px 0 0 50px;
 }
+
+
+/*---------------------------------------------------------*/
+
+.headerDropDown {
+    margin: 50px;
+}
+
+#dropdownContent {
+    display:none;
+  
+}
+
+#dropdownContent a {
+    list-style-type: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+#listado {
+    display: none;
+}
+
+.botones {
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+}
