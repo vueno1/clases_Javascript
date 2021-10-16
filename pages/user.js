@@ -57,11 +57,19 @@ document.getElementById ("btn").addEventListener ("click", ()  => {
 
 const mostrarUsuarios = () => {
 
-    let listadoIngresados = JSON.parse (localStorage.getItem ("usuario"))
+    if (localStorage.getItem ("usuario") == null ) {
+        console.log ("no hay usuarios ingresados")
+    
+    } else {
 
-    const lista = document.createElement ("p")
-    lista.textContent = listadoIngresados
-    document.getElementById ("listado").appendChild (lista)
+        let listadoIngresados = JSON.parse (localStorage.getItem ("usuario"))
+        console.log (listadoIngresados[1])  
+    
+        const lista = document.createElement ("p")
+        lista.textContent = listadoIngresados [1]
+        document.getElementById ("listado").appendChild (lista)
+
+    }
     
 }
 

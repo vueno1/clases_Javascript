@@ -675,3 +675,95 @@ Capturar una o màs entradas por promp() y mostrarlas en el HTML, modificando el
 //document.getElementsByTagName ("h3")[1].style.backgroundColor = "blue" // cambios en el h3
 //document.getElementsByTagName ("div")[15].style.textAlign = "center"  // alinear al centro texto
 
+-----------------------------------------------------------------------------------------------------------
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------
+//------ejemplos de cambios en una especifica seccion del html----------
+
+
+//ejemplo 1)
+// hago un cambio en la imagen central, en la seccion = mainNoticiasImg ----------------------------------
+document.getElementsByClassName ("mainNoticiasImg")[1].src = "https://i0.wp.com/hipertextual.com/wp-content/uploads/2020/04/hipertextual-the-last-of-us-part-ii-y-otros-exclusivos-playstation-podrian-llegar-pc-2020610272-scaled.jpg?fit=2560%2C1518&ssl=1"
+
+
+// creo el elemento span en esta seccion para comentario extra-----
+const span = document.createElement ("span")  // creo la constante "span" con el elemento "span"
+span.setAttribute = ("class", "extra")  // FIXME: aca no se por q no me crea la clase "extra"
+span.textContent = "Nuevas Noticias sobre esta img!" // agrego el texto a mi span
+span.style.color = "violet" //agrego color a ese nuevo span 
+span.style.fontFamily = "roboto" // agrego un font-family
+span.style.textAlign = "center" // lo centro 
+span.style.fontWeight = "bold" // agrego un fontWeight a ese span
+
+document.getElementsByClassName ("mainNoticiasCuadrosDentro") [1].appendChild (span) // se agrega el hijo "span" en el padre "div = class adicional"
+
+//----------------------------------------------------------------------------------------------------------------
+
+//ejemplo 2) 
+// creo un h2 en la seccion TECONOLOGIA para nuevo comentario-----------------------------------
+const h3 = document.createElement ("h3") 
+h3.setAttribute = ("id", "nuevaNoticiaTech")
+h3.textContent = "Hay nuevas novedades en el mundo de la teconologia!"
+
+document.getElementsByClassName ("mainElectronica")[0].appendChild (h3)
+h3.style.color = "white"
+h3.style.textAlign = "center"
+h3.style.fontSize = "30px"
+
+//------------------------------------------------------------------------------------------------------------------------------
+
+//ejemplo 3) 
+//creamos un parrafo, cuando vemos que el elemento fue seleccionado por el usuario-------
+
+const consultarAlCliente =() => { // creo una funcion para "consultar pedido"
+
+    const eleccionJuego = prompt ("ingrese juego:") // hago la pregunta x prompt y creo una constante 
+
+    if (eleccionJuego === "the last of us 2") {  // aca no supe como traer la informacion del localstorage
+
+        // realizo los cambios en el html segun la eleccion del cliente 
+        const eleccion1 = document.createElement ("p") // creo un elemento "parrafo" dentro de la constante eleccion 1
+        eleccion1.setAttribute ("id", "juegoEleccion1") // le seteo el atributo id con el nombre juegoEleccion1
+        eleccion1.textContent = "el usuario eligio THE LAST OF US 2" // texto que aparecera segun la eleccion del ususario
+        eleccion1.style.textAlign = "center" // estilos del texto para que sea mas visible.
+        eleccion1.style.backgroundColor = "green"
+        eleccion1.style.fontSize = "50px"
+
+        document.getElementById ("eleccionDelJugador").appendChild (eleccion1)
+        
+    } else if (eleccionJuego === "fifa 22") { // en el caso que eliga FIFA 22......
+
+        const eleccion2 = document.createElement ("p")
+        eleccion2.setAttribute ("id", "juegoEleccion1")
+        eleccion2.textContent = "el usuario eligio FIFA 22"
+        eleccion2.style.textAlign = "center"
+        eleccion2.style.backgroundColor = "green"
+        eleccion2.style.fontSize = "50px"
+
+        
+        document.getElementById ("eleccionDelJugador").appendChild (eleccion2)
+
+
+    } else if (eleccionJuego === "lego marvels"){ // en el caso que eliga LEGO MARVELS .....
+
+        const eleccion3 = document.createElement ("p")
+        eleccion3.setAttribute ("id", "juegoEleccion1")
+        eleccion3.textContent = "el usuario eligio LEGOS MARVEL"
+        eleccion3.style.textAlign = "center"
+        eleccion3.style.backgroundColor = "green"
+        eleccion3.style.fontSize = "50px"
+
+        document.getElementById ("eleccionDelJugador").appendChild (eleccion3)
+
+
+    } else { // En el caso que elija otro juego y no haya stock.
+        console.log ("no hay stock!")
+    }
+     
+}
+----------------------------------------------------------------------------------------------------------------
+
+
+
