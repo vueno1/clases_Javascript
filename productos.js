@@ -1,5 +1,17 @@
+
+
+/*////////////////
+CREO MIS VARIABLES
+////////////////*/
 let listadoProductosNuevos;
-let imprimirProductos = document.getElementById ("juegosIngresados")
+let imprimirProductos = document.getElementById ("juegosIngresados") //div donde imprimire mis productos. 
+
+
+
+
+/*/////////////////////////////////////////////////////////////////
+CONDICIONAL: en el caso que haya o no informacion en mi localstorage
+///////////////////////////////////////////////////////////////////*/
 
 if (localStorage.getItem ("producto") == null) {
     alert ("no hay productos nuevos")
@@ -7,6 +19,11 @@ if (localStorage.getItem ("producto") == null) {
     listadoProductosNuevos = JSON.parse (localStorage.getItem ("producto"))
 }
 
+
+
+/*//////////////////////////////////
+imprimo cada producto en mi HTML
+///////////////////////////////////*/
 listadoProductosNuevos.forEach (element => {
 
     imprimirProductos.innerHTML += `
