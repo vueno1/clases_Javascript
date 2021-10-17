@@ -12,10 +12,10 @@ listadoProductosNuevos.forEach (element => {
     imprimirProductos.innerHTML += `
 
     <div class="juego1">
-        <h3>${element.nombreProducto}</h3>
-        <p>${element.categoriaProducto}</p>
-        <p>${element.precioProducto} </p>
-        <p>${element.stockProducto} </p>        
+        <h3 class="tituloJuegos">${element.nombreProducto.nombreProducto}</h3>
+        <p class= "parrafoJuego">${element.nombreProducto.categoriaProducto}</p>
+        <p class= "parrafoJuego"> precio: ${element.nombreProducto.precioProducto} </p>
+        <p class= "parrafoJuego">stock: ${element.nombreProducto.stockProducto} </p>        
     </div>
 `
 })

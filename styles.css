@@ -322,3 +322,18 @@
     flex-direction: row;
     margin: 50px;
 }
+
+#juegosIngresados  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.juego1 {
+    display: flex;
+    flex-direction: column;
+    border: black solid;
+    border-width: thin;
+    margin: 50px;
+    justify-content: center;
+}
