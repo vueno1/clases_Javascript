@@ -52,9 +52,9 @@ FUNCION = CUANDO TOCO BOTON PARA REGISTRO
 ////////////////////////////////////////*/
 
 const registro = () => {
-    formulario.style.display = "none"
+    formulario.style.display = "none" // desaparece el div formulario 
 
-    formularioRegistro.style.display = "flex"
+    formularioRegistro.style.display = "flex" // y aparece el otro formulario para registrarse 
     formularioRegistro.style.position = "absolute"
     formularioRegistro.style.flexDirection = "column"
 
@@ -138,7 +138,8 @@ document.getElementById ("btn_ingresar").addEventListener ("click", ()  => {
 TRAIGO INFORMACION DE MI LOCALSTORAGE
 //////////////////////////////////*/
 let usuarioParseados = JSON.parse(localStorage.getItem ("usuario")) // parseo informacion y la declaro.
-const usuarioId1 = usuarioParseados[0].nombreUs.idUs
+
+const usuarioId1 = usuarioParseados [0].nombreUs.idUs
 const usuarioPass1 = usuarioParseados[0].nombreUs.contraseñaUs
 
 /*//////////////////////////////
@@ -146,17 +147,21 @@ FUNCION = PARA BOTON DE LOG IN
 //////////////////////////////*/
 const login = () => {
 
-    let idUsuario = document.getElementById ("idUsuario").value // valor del input consultando ID, y declaracion de variable.
-    let passUsuario = document.getElementById ("passUsuario").value // valor del input consultando password, y declaracion de variable.
-    let bucle = true
+    const idUsuario = document.getElementById ("idUsuario").value // valor del input consultando ID, y declaracion de variable.
+    const passUsuario = document.getElementById ("passUsuario").value // valor del input consultando password, y declaracion de variable.
+    const bucle = true
 
     while (bucle) {
-        if (idUsuario ===usuarioId1  && passUsuario === usuarioPass1) {
+
+        if (idUsuario === usuarioId1 && passUsuario === usuarioPass1) {
 
             console.log (`bienvenida ${idUsuario}`)
             alert (`Bienvenida ${idUsuario}`)
             return `bienvenida ${idUsuario}`
     
+            bucle = false
+            break
+
         } else {
             console.log ("usuario o contraseña incorrectos")
             return "usuario o contraseña incorrectos"
@@ -198,27 +203,8 @@ class Productos {
         this.categoriaProducto = categoriaPP;
         this.precioProducto = precioPP;
         this.stockProducto = stockPP;
-    }
-
-
-
-    /*////////////////
-    METODO = COMPRAR
-    ////////////////*/
-    comprar (cantidad) {
-
-        if (this.stock <= 0) {
-            console.log ("no hay stock!")
-
-        }   else {
-            this.stock = this.stock - cantidad
-            console.log (`carrito de compras: ${this.nombre} a Usd: ${this.precio *cantidad}`)
-        }
     }    
 }
-
-
-
 
 const listaProductos = [] // declaracion lista array LISTAPRODUCTOS---------
 
@@ -228,21 +214,21 @@ FUNCION PARA AGREGAR PRODUCTOS
 ////////////////////////////*/
 const agregarProductos = () => {
 
-    //-----pido datos a ingresar----------------------
-    const nombreProducto = prompt ("ingrese producto")
-    const categoriaProducto = prompt ("ingrese categoria")
-    const precioProducto = Number (prompt ("ingrese precio"))
-    const stockProducto = Number (prompt ("ingrese stock"))
+    const producto = new Productos ({
 
-    //-------BOTON = "agregarProductos" para ir agregando productos x prompt-----------
-    //------BOTON = "listaProductos" para mostrar la lista de productos ingresados-----
+        nombreProducto: document.getElementById ("nombreP").value, 
+        categoriaProducto: document.getElementById ("categoriaP").value,
+        precioProducto: document.getElementById ("precioP").value,
+        stockProducto: document.getElementById ("stockP").value,
 
-    //---por cada dato ingresado, creo un objeto a mi lista----------------
-    const producto = new Productos (nombreProducto, categoriaProducto,precioProducto,stockProducto)
+    })
+
+
 
     //---creo el condicional para guardar la informacion ingresada--------------
     //-----si no hay informacion en el storage, lo guardo.
     if (localStorage.getItem("producto") == null) { // si busco en local storage y no hay informacion.... = null
+       
         listaProductos.push (producto) // pusheo info y agrego a listaproducto.
         localStorage.setItem ("producto", JSON.stringify(listaProductos)) // y esa informacion de "listaproductos" la transformo a JSON y 
         //guardo en local storage.
@@ -256,6 +242,10 @@ const agregarProductos = () => {
     }
     
 }
+
+document.getElementById ("btn_nuevoProducto").addEventListener ("click", ()=> {
+    agregarProductos ()
+})
 
 //-----------------------------------------------------------------------------------------------------------------
 
