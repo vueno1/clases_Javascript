@@ -7,11 +7,6 @@
 ******************************************************************/
 
 
-
-
-
-
-
 /*//////////////////////
 DECLARACION FORMULARIOS
 /////////////////////*/
@@ -138,9 +133,15 @@ document.getElementById ("btn_ingresar").addEventListener ("click", ()  => {
 TRAIGO INFORMACION DE MI LOCALSTORAGE
 //////////////////////////////////*/
 let usuarioParseados = JSON.parse(localStorage.getItem ("usuario")) // parseo informacion y la declaro.
+let idOk;
+let passOk;
 
-const usuarioId1 = usuarioParseados [0].nombreUs.idUs
-const usuarioPass1 = usuarioParseados[0].nombreUs.contraseñaUs
+
+usuarioParseados.forEach (element => {     
+    idOk = (element.nombreUs.idUs)
+    passOk = (element.nombreUs.contraseñaUs)
+    
+})
 
 /*//////////////////////////////
 FUNCION = PARA BOTON DE LOG IN 
@@ -149,28 +150,19 @@ const login = () => {
 
     const idUsuario = document.getElementById ("idUsuario").value // valor del input consultando ID, y declaracion de variable.
     const passUsuario = document.getElementById ("passUsuario").value // valor del input consultando password, y declaracion de variable.
-    const bucle = true
+  
+    if (idUsuario === idOk && passUsuario === passOk) {
 
-    while (bucle) {
+        console.log (`bienvenida ${idUsuario}`)
+        alert (`Bienvenida ${idUsuario}`)
+        return `bienvenida ${idUsuario}`
 
-        if (idUsuario === usuarioId1 && passUsuario === usuarioPass1) {
-
-            console.log (`bienvenida ${idUsuario}`)
-            alert (`Bienvenida ${idUsuario}`)
-            return `bienvenida ${idUsuario}`
-    
-            bucle = false
-            break
-
-        } else {
-            console.log ("usuario o contraseña incorrectos")
-            return "usuario o contraseña incorrectos"
-        }
+    } else {
+        console.log ("usuario o contraseña incorrectos")
+        return "usuario o contraseña incorrectos"
     }
 
-
 }
-
 
 /*///////////////
 BOTON = LOG IN
