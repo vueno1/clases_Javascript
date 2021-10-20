@@ -1,7 +1,5 @@
 /*****************************************************************
-* 
-* 
------------PAGINA DE VENTA DE VIDEOJUEGOS + MERCHANDISING---------
+*
 *
 *
 ******************************************************************/
@@ -14,19 +12,43 @@ DECLARACION FORMULARIOS
 let formulario = document.getElementById ("formUsuario") // declaro "formulario" = log in 
 let formularioRegistro = document.getElementById ("formRegistro") // declaro "formularioRegistro" = sign in
 
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-/*//////////////////////////////////////////
+
+
+
+/*///////////////////
+CLASES
+//////////////////*/
+
+/*///////////////////////////////
+FUNCION CONSTRUCTORA = USUARIOS
+////////////////////////////////*/
+class Usuarios {
+
+    constructor (nombreUS, apellidoUS, mailUS, idUS, contraseñaUS) {
+        this.nombreUs = nombreUS;
+        this.apellidoUs = apellidoUS;
+        this.mailUs = mailUS;
+        this.idUs = idUS;
+        this.contraseñaUs = contraseñaUS;
+    }
+}
+
+let listaUsuario = [] //declaracion array listado
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*///////////////////////////////////////////
 FUNCION = CUANDO CLICKEO BOTON INICIAR SESION
-//////////////////////////////////////////*/
+///////////////////////////////////////////*/
 
-const botonInicio = () => { // declaro una funcion para el boton = "botonInicio"
-    
+const botonInicio = () => { // declaro una funcion para el boton = "botonInicio"    
     if (formulario.style.display === "none") {
-
         formulario.style.display = "flex" // al clickear, me despliega el formulario q estaba en display = none
         formulario.style.position = "absolute" // y le declaro estilos
         formulario.style.flexDirection = "column"
-
     } else {
         formulario.style.display = "none"
     }
@@ -35,10 +57,15 @@ const botonInicio = () => { // declaro una funcion para el boton = "botonInicio"
 /*/////////////////
 BOTON=INICIAR SESION
 //////////////////*/
-
 document.getElementById ("botonInicioSesion").addEventListener ("click", () => { // llamo al boton inicio sesion para que loggee al usuario ya registrado.
     botonInicio ()
 })
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
+
 
 
 
@@ -63,26 +90,12 @@ document.getElementById ("usuarioNuevo").addEventListener ("click", (e) => {
     registro ()
 })
 
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 
 
 
 
-/*///////////////////////////////
-FUNCION CONSTRUCTORA = USUARIOS
-////////////////////////////////*/
-class Usuarios {
-
-    constructor (nombreUS, apellidoUS, mailUS, idUS, contraseñaUS) {
-        this.nombreUs = nombreUS;
-        this.apellidoUs = apellidoUS;
-        this.mailUs = mailUS;
-        this.idUs = idUS;
-        this.contraseñaUs = contraseñaUS;
-    }
-}
-
-let listaUsuario = [] //declaracion array listado
 
 
 
@@ -101,21 +114,22 @@ const agregarUsuario = () => {
 
     })
 
-    
-
-
     /*//////////////////////////////////
     SE GUARDA INFORMACION EN LOCALSTORAGE
     /////////////////////////////////////*/
 
     if (localStorage.getItem ("usuario") == null) {
+
         listaUsuario.push (usuario)
         localStorage.setItem ("usuario", JSON.stringify (listaUsuario))
+
     } else {
+
         const nuevaListaUsuario = JSON.parse (localStorage.getItem ("usuario"))
         nuevaListaUsuario.push (usuario)
         localStorage.setItem ("usuario", JSON.stringify (nuevaListaUsuario))
     }
+
 }
 
 
@@ -126,22 +140,16 @@ document.getElementById ("btn_ingresar").addEventListener ("click", ()  => {
     agregarUsuario ()
 })
 
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 
 
-/*///////////////////////////////////
-TRAIGO INFORMACION DE MI LOCALSTORAGE
-//////////////////////////////////*/
-let usuarioParseados = JSON.parse(localStorage.getItem ("usuario")) // parseo informacion y la declaro.
-let idOk;
-let passOk;
 
 
-usuarioParseados.forEach (element => {     
-    idOk = (element.nombreUs.idUs)
-    passOk = (element.nombreUs.contraseñaUs)
-    
-})
+
+
+
+
 
 /*//////////////////////////////
 FUNCION = PARA BOTON DE LOG IN 
@@ -151,10 +159,28 @@ const login = () => {
     const idUsuario = document.getElementById ("idUsuario").value // valor del input consultando ID, y declaracion de variable.
     const passUsuario = document.getElementById ("passUsuario").value // valor del input consultando password, y declaracion de variable.
   
-    if (idUsuario === idOk && passUsuario === passOk) {
+    let usuarioParseados = JSON.parse(localStorage.getItem ("usuario")) // parseo informacion y la declaro.
+    let idOk = [];
+    let passOk = [];
 
-        console.log (`bienvenida ${idUsuario}`)
-        alert (`Bienvenida ${idUsuario}`)
+    usuarioParseados.forEach (element => {     
+        idOk.push(element.nombreUs.idUs)
+        passOk.push(element.nombreUs.contraseñaUs)
+        
+    })
+
+
+    if (idOk.includes(idUsuario) && passOk.includes(passUsuario)) {
+
+        document.getElementById ("botonInicioSesion").style.display = "none"
+
+        const hola = document.createElement ("button")
+            hola.setAttribute ("id", "botonInicioSesion")
+            hola.textContent = `Bienvenido ${idUsuario}`
+            document.getElementById ("hola").appendChild (hola)
+
+        document.getElementById ("formUsuario").style.display = "none"
+
         return `bienvenida ${idUsuario}`
 
     } else {
@@ -173,20 +199,21 @@ document.getElementById ("logIn").addEventListener ("click", (e) => {
 })
 
 
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
+const tocarMain = () => {
 
+    document.getElementById ("formUsuario").style.display = "none"
+    document.getElementById ("formRegistro").style.display = "none"
+}
 
+document.getElementsByTagName ("main") [0].addEventListener ("click", () => {
+    tocarMain ()
+})
 
 
 //------------------------------------------------------------------------------------------------------------------
-/*//////////////////////////////////////////////
-                PRODUCTOS
-////////////////////////////////////////////// */
-
-
-/*//////////////////////////////
-FUNCION CONSTRUCTORA = PRODUCTOS
-/////////////////////////////*/
+/*
 class Productos {
     
     constructor (nombrePP,categoriaPP,precioPP,stockPP) 
@@ -201,9 +228,7 @@ class Productos {
 const listaProductos = [] // declaracion lista array LISTAPRODUCTOS---------
 
 
-/*////////////////////////////
-FUNCION PARA AGREGAR PRODUCTOS
-////////////////////////////*/
+
 const agregarProductos = () => {
 
     const producto = new Productos ({
@@ -214,8 +239,6 @@ const agregarProductos = () => {
         stockProducto: document.getElementById ("stockP").value,
 
     })
-
-
 
     //---creo el condicional para guardar la informacion ingresada--------------
     //-----si no hay informacion en el storage, lo guardo.
@@ -235,12 +258,9 @@ const agregarProductos = () => {
     
 }
 
-document.getElementById ("btn_nuevoProducto").addEventListener ("click", ()=> {
+document.getElementsByClassName ("btn btn-primary")[1].addEventListener ("click", () => {
     agregarProductos ()
 })
 
-//-----------------------------------------------------------------------------------------------------------------
-
-
-
+*/
 

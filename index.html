@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <title>universogames</title>
 
@@ -18,75 +19,79 @@
 
     <header class="header">
 
-        <div class="headerBarraNegra">
-            <h1>Universo Games</h1>
+      <!-- ////////////////
+        BARRA NEGRA HEADER
+      ///////////////////// -->
+
+      <div class="headerBarraNegra">
+        <a href="" id="logo"><img src="source/headerLogo.jpeg" alt="" height="20px"></a>
+        <a href="#"><h1>Universo Games</h1></a>
+      </div>
+
+      <!-- ////////////
+            NAVEGADOR 
+      ///////////////// -->
+
+      <ul class="nav">
+
+        <li class="nav-item">
+          <a class="nav-link active" href="pages/juegos.html">juegos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="pages/carrito.html">carrito</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="pages/admin.html">administrador</a>
+        </li>        
+          
+      </ul>
+
+      <div class="headerNavDerecha">  
+
+        <div>
+          <button id="botonInicioSesion" class="inicioSesion">Iniciar Sesión</button>
+      
+          <div id="hola">
+          
+          </div>
+
+          <form action="" id="formUsuario">
+            <input type="text" id="idUsuario" autocomplete= "nickname" placeholder="Usuario ID">
+            <input type="password" id="passUsuario" autocomplete="current-password" placeholder="Password">
+            <button id="logIn">LOG IN</button>
+            <p>Es usuario Nuevo?</p>
+            <button id="usuarioNuevo">registrese!</button>
+          </form>
+
+
+          <form action="" id="formRegistro">
+
+          <input type="text" id="nombre" placeholder="nombre">
+          <input type="text" id="apellido" placeholder="apellido">
+          <input type="email" id="mail" placeholder="email">
+          <input type="text" id="id" placeholder="ID">
+          <input type="number" id="contraseña" placeholder="contraseña">
+
+          <button id="btn_ingresar">Registro</button>                      
+          
+          </form>
+          
+          </div>              
+
+          <div>
+              <input id="botonBusqueda" type="text" name="buscador" placeholder="Buscador">
+          </div>
+        
+            
         </div>
 
-       <section class="headerNav">
-
-            <div class="headerLogo">
-                <a href="index.html">
-                    <img class="headerLogo" src="source/logos/logoUniverso2.png" alt="headerLogo">
-                </a>
-            </div>
-
-            <nav class="headerNavegador">
-                <ul class="headerLista">
-                    <a href=""><li>JUEGOS</li></a>
-                    <a href=""><li>TECNOLOGIA</li></a>
-                    <a href=""><li>NOTICIAS</li></a>
-                    <a href=""><li>TIENDA</li></a>
-                    <a href=""><li>NOSOTROS</li></a>
-                </ul>
-            </nav>
-
-            <div class="headerNavDerecha">  
-                <div>
-                    <button id="botonInicioSesion" class="inicioSesion">Iniciar Sesión</button>
-                
-                    <form action="" id="formUsuario">
-                        <input type="text" id="idUsuario" autocomplete= "nickname" placeholder="Usuario ID">
-                        <input type="password" id="passUsuario" autocomplete="current-password" placeholder="Password">
-                        <br>
-                        <button id="logIn">LOG IN</button>
-                        <br>
-                        <p>Es usuario Nuevo?</p>
-                        <br>
-                        <button id="usuarioNuevo">registrese!</button>
-                    </form>
-
-
-                    <form action="" id="formRegistro">
-
-                        <input type="text" id="nombre" placeholder="nombre">
-                        <input type="text" id="apellido" placeholder="apellido">
-                        <input type="email" id="mail" placeholder="email">
-                        <input type="text" id="id" placeholder="ID">
-                        <input type="number" id="contraseña" placeholder="contraseña">
-
-                        <button id="btn_ingresar">Registro</button>
-
-                        
-                    
-                    </form>
-                
-                </div>              
-
-                <div>
-                    <input id="botonBusqueda" type="text" name="buscador" placeholder="Buscador">
-                </div>
-            
-               
-            </div>
-
-        </section>  
+      </section>  
 
     </header>
 
-    <!--////////////////////////////////////////////////////////////////////////////////////////-->
-        <!----------COMIENZO DE MAIN------------------------------------>
-    <!--////////////////////////////////////////////////////////////////////////////////////////--> 
-
+    
     <main class="mainIndex"> 
 
         <!--////////////////////////////////////////////////////////////////////////////////////////-->
@@ -97,127 +102,23 @@
             <img src="source/juegos/TLOU2/06.jpg" alt="">
         </section>
 
-        <!--////////////////////////////////////////////////////////////////////////////////////////-->
-          <!--2° SECCION = MUESTRA DE LOS JUEGOS------------------------------------------------>
-        <!--////////////////////////////////////////////////////////////////////////////////////////--> 
 
 
-        <!--////////////////////////////////////////////////////////////////////////////////////////-->
-          <!--3° SECCION = COMENTARIOS SOBRE UN JUEGO------------------------------------------------>
-        <!--////////////////////////////////////////////////////////////////////////////////////////--> 
-
-        <section class="mainComentarios">
-
-            <div class="mainComentariosImg">
-                <img src="source/juegos/TLOU2/02.jpg" alt="">
-            </div>
-
-            <div class="mainComentarios2">
-                <img src="" alt="">
-                <p> UN INCREIBLE TRABAJO ARTISTICO!</p>
-            </div>
-
-        </section>
-
-        <!--////////////////////////////////////////////////////////////////////////////////////////-->
-          <!--4° SECCION = NOTICIAS------------------------------------------------>
-        <!--////////////////////////////////////////////////////////////////////////////////////////-->
-
-        <section class="mainNoticias">
-
-            <h2>ULTIMAS NOTICIAS</h2>
-
-            <div class="mainNoticiasCuadros">
-
-                <div class="mainNoticiasCuadrosDentro">
-                    <img class="mainNoticiasImg" src="source/juegos/TLOU2/03.jpg" alt="">
-                    <div>
-                        <h3>NOTICIA 1</h3>
-                        <p> este juego bla bla bla</p>
-                        <span>05/oct 2021</span>
-                    </div>
-                </div>
-    
-                <div class="mainNoticiasCuadrosDentro">
-                    <img class="mainNoticiasImg" src="source/juegos/TLOU2/03.jpg" alt="">
-                    <div>
-                        <h3>NOTICIA 1</h3>
-                        <p> este juego bla bla bla</p>
-                        <span>05/oct 2021</span>
-                    </div>
-                </div>
-    
-                <div class="mainNoticiasCuadrosDentro">
-                    <img class="mainNoticiasImg" src="source/juegos/TLOU2/03.jpg" alt="">
-                    <div>
-                        <h3>NOTICIA 1</h3>
-                        <p> este juego bla bla bla</p>
-                        <span>05/oct 2021</span>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!--////////////////////////////////////////////////////////////////////////////////////////-->
-          <!--SECCION = ------------------------------------------------>
-        <!--////////////////////////////////////////////////////////////////////////////////////////--> 
-
-        <section class="mainElectronica">
-
-            <h2>TECNOLOGIA</h2>
-
-            <div class="mainElectronicaCuadros">
-
-                <div>
-                    <img class="mainElectroImg" src="source/juegos/TLOU2/05.jpg" alt="">
-                </div>
-    
-                <div>
-                    <img class="mainElectroImg" src="source/juegos/TLOU2/05.jpg" alt="">
-                </div>
-    
-                <div>
-                    <img class="mainElectroImg" src="source/juegos/TLOU2/05.jpg" alt="">
-                </div>
-
-            </div>
-
-        </section>
-
-        <section id="eleccionDelJugador">
-
-        </section>
-
+        
 
     </main>
+
 
 
     <!--////////////////////////////////////////////////////////////////////////////////////////-->
     <!-----------FOOTER------------------------------------------------>
     <!--////////////////////////////////////////////////////////////////////////////////////////--> 
 
-    <form action="">
-        <input type="text" id="nombreP" placeholder="nombre">
-        <input type="text" id="categoriaP" placeholder="categoria">
-        <input type="number" id="precioP" placeholder="precio">
-        <input type="" id="stockP" placeholder="stock">
-    </form>
-
-    <button id="btn_nuevoProducto">NUEVO PRODUCTO</button>
 
 
     <footer class="footer">
 
-        <div class="footerRedesSociales">
-
-            <img src="source/logos/twitterLogo_Mesa de trabajo 1.png" alt="" height="100">
-            <img src="source/logos/instagram_Mesa de trabajo 1 copia.png" alt="" height="100">
-            <img src="source/logos/youtube_Mesa de trabajo 1 copia 2.png" alt="" height="100"> 
-            <img src="source/logos/twitchLogo_Mesa de trabajo 1 copia 3.png" alt="" height="100">          
-
-        </div>
+       
 
         <div class="footerBarraFinal">
 
@@ -235,6 +136,10 @@
         </div>
     </footer>    
 
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 
 </body>

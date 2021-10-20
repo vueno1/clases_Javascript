@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <header class="header">
+
+        <div class="headerBarraNegra">
+            <a href="../index.html" id="logo"><img src="../source/headerLogo.jpeg" alt="" height="20px"></a>
+          <a href="../index.html"><h1>Universo Games</h1></a>
+        </div>
+    
+    
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="juegos.html">juegos</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="carrito.html">carrito</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">administrador</a>
+            </li>
+          
+          </ul>
+    
+    </header>
+
+    <main>
+
+        <form action="" id="formAdmin">
+            <input type="text" id="idAdmin" placeholder="nombre">
+            <input type="number" id="passAdm" placeholder="password">
+    
+            <button id="btn_confirm">log in autorizado</button>
+    
+        </form>
+
+        <div id="hola">
+            <h2 id="holaAdmin"></h2>
+        </div>
+    
+       
+    
+        <form id="form_index">
+        
+            <div class="form-group">
+              <input type="text" class="form-control" id="nombreP" aria-describedby="emailHelp" placeholder="nombre">
+            </div>
+    
+            <div class="form-group">
+                <input type="text" class="form-control" id="categoriaP" aria-describedby="emailHelp" placeholder="categoria">
+              </div>
+    
+            <div class="form-group">
+            <input type="number" class="form-control" id="precioP" aria-describedby="emailHelp" placeholder="precio">
+            </div>
+    
+            <div class="form-group">
+                <input type="number" class="form-control" id="stockP" aria-describedby="emailHelp" placeholder="stock">
+            </div>
+    
+            <button class="btn btn-primary">NUEVO PRODUCTO</button>
+    
+        </form>
+
+
+
+
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="admin.js"></script>
+
+    
+</body>
+</html>

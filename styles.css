@@ -23,7 +23,7 @@
     background-color: black;
     color: white;
     display: flex;
-    justify-content: end;
+    justify-content:space-between;
 }
 
 .headerBarraNegra h1 {
@@ -31,45 +31,20 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.headerNav {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
+#logo {
+    left: 0;
+}
+
+.nav {
     background-color: white;
-}
-
-.headerLogo {
-    height: 100px;    
-}
-
-.headerNavegador {
-    display: flex;
-    width: 100%;
-}
-
-.headerLista {
-    display: flex;
-    flex-direction: row;
-    width: 60%;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.headerNavegador ul a {
-    color: black;
-    list-style-type: none;
-    text-decoration: none;
-    display: flex;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
 }
 
 .headerNavDerecha {
     display: flex;
     flex-direction: row;
     padding-right: 20px;
-    width: 30%;
     align-items: center;
+    background-color: white;
 }
 
 #botonInicioSesion {
@@ -84,10 +59,16 @@
 
 #formRegistro {
     display: none;
+    background-color: white;
+    border: 20px;
+    padding: 20px;
 }
 
 #formUsuario {
     display: none;
+    background-color: white;
+    border: 20px;
+    padding: 20px;
 }
 
 
@@ -111,157 +92,6 @@
 
 /*-------------2°SECCION: JUEGO MUESTRAS----------------------*/
 
-.mainJuegosMuestra {
-  display: flex;  
-  flex-direction: column;
-  margin: 100px 0;
-}
-
-.mainJuegosMuestra h2 {
-    display: flex;
-    font-family:'Roboto', sans-serif;
-    color: grey;
-    font-size: 50px;
-    margin: 50px 0;
-    padding-left: 250px;
-}
-
-.mainJuegoMuestraGrid {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.juegoMuestra {
-    height: 250px;
-    margin: 0 20px;
-    border-radius: 20px;
-}
-
-/*------------3°SECCION: COMENTARIOS--------------------------*/
-
-.mainComentarios {
-    background-color: black;
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 500px;
-    margin: 100px 0;
-}
-
-.mainComentariosImg {
-    display: flex;
-    justify-content: right;
-    width: 100%;
-}
-.mainComentarios2 {
-    display: flex;
-    position: absolute;
-}
-
-.mainComentarios2 p {
-    color: white;
-    font-size: 'Roboto Condensed', sans-serif;
-    font-size: 50px;
-    margin: 50px 0 0 50px;
-}
-
-/*----------4°SECCION: NEWS --------------------------------*/
-
-.mainNoticias {
-    display: flex;
-    flex-direction: column;
-    margin: 100px 0;
-    height: 500px;
-}
-
-.mainNoticias h2 {
-    display: flex;
-    font-family:'Roboto', sans-serif;
-    color: grey;
-    font-size: 50px;
-    margin: 50px 0;
-    padding-left: 250px;
-}
-
-.mainNoticiasCuadros {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.mainNoticiasCuadrosDentro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.mainNoticiasCuadrosDentro div {
-    margin: 20px 0;
-    text-align: center;
-}
-
-.mainNoticiasCuadrosDentro div h3 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    font-style: italic;
-    margin-bottom: 20px;
-}
-
-/*-------estilos especiales para js*/
-.adicional {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 20px;
-}
-
-.adicional2 {
-    text-align: center;
-    color: white;
-    font-family:'Roboto', sans-serif;
-    font-size: 20px;
-}
-
-/***************************************/
-
-.mainNoticiasImg {
-    height: 250px;
-    margin: 0 20px;
-    border-radius: 20px;
-}
-
-/*------------tecnologia------------------------------*/
-
-.mainElectronica {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 100px 0;
-    background-image:url(source/juegos/TLOU2/background.png);
-    padding: 100px;
-}
-
-.mainElectronica h2 {
-    display: flex;
-    font-family:'Roboto', sans-serif;
-    color: grey;
-    font-size: 50px;
-    margin: 50px 0;
-    padding-left: 250px;
-}
-
-.mainElectronicaCuadros {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.mainElectroImg {
-    height: 250px;
-    margin: 0 20px;
-    border-radius: 20px;
-}
 
 /*--------------footer----------------------------*/
 .footer {
@@ -325,15 +155,36 @@
 
 #juegosIngresados  {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+
 }
 
-.juego1 {
-    display: flex;
-    flex-direction: column;
-    border: black solid;
-    border-width: thin;
+.card {
+   margin: 20px; 
+}
+
+.form_index {
     margin: 50px;
+}
+
+
+
+/*-------------------------------------------------------*/
+
+main {
+    padding-top: 100px;
+}
+
+#form_index {
+    display: none;
+}
+
+
+/************************************/
+
+#carrito {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
 }
