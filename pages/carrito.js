@@ -1,45 +1,69 @@
-
-
 /*////////////////
 CREO MIS VARIABLES
 ////////////////*/
-let listadoProductosNuevos;
-let imprimirProductos = document.getElementById ("carrito") //div donde imprimire mis productos. 
-
-
-
+    let listadoProductosNuevos = []
+    let imprimirProductos = document.getElementById ("carrito") //div donde imprimire mis productos. 
+    let botonFinalizar;
 
 /*////////////////////////////////////////////////////////////////////////////
 CONDICIONAL: en el caso que haya o no informacion en mi localstorage "carrito"
 ////////////////////////////////////////////////////////////////////////////*/
 
-if (localStorage.getItem ("carrito") == null) {
-    document.getElementById ("comentario").textContent = "no hay productos!"
+    if (localStorage.getItem ("carrito") == null) {
+        document.getElementById ("comentario").textContent = "no hay productos!"
 
-} else {
+    } else {
 
-    document.getElementById ("comentario").textContent = "CARRITO COMPRA:"
-    listadoProductosNuevos = JSON.parse (localStorage.getItem ("carrito"))
-}
+        document.getElementById ("comentario").textContent = "CARRITO COMPRA:"
+        listadoProductosNuevos = JSON.parse (localStorage.getItem ("carrito"))
 
-
+        botonFinalizar = document.getElementById ("finalizar").style.display = "flex"
+    }
 
 /*//////////////////////////////////
-imprimo cada producto en mi HTML
+RECORRO MI ARRAY, E IMPRIMO EN MI HTML.
 ///////////////////////////////////*/
-listadoProductosNuevos.forEach (element => {
+    listadoProductosNuevos.forEach (element => {
 
-    imprimirProductos.innerHTML += `
+        const divP = document.createElement ("div")
+        divP.setAttribute ("class", "card-body")
 
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">${element.nombreProducto.nombreProducto} </h5>
-            <h6 class="card-subtitle mb-2 text-muted">Nuevo!</h6>
-            <p class="card-text">el juego mas buscado!</p>
-            <p class="card-text">precio: usd ${element.nombreProducto.precioProducto} </p>
-    
-        </div>
-    </div>
-    
-`
-})
+            const img = document.createElement ("img")
+            img.setAttribute ("src", "../source/juegos/TLOU2/01.jpg") // FIXME = como poner img correspondiente?
+            img.setAttribute ("class", "styleImg")
+            divP.appendChild (img)
+
+            const h5 = document.createElement ("h5")
+            h5.setAttribute ("class", "card-title")
+            h5.style.fontWeight = "bolder"
+            h5.style.marginTop = "20px"
+            h5.textContent = `${element.nombreProducto.nombreProducto}`
+            divP.appendChild (h5)
+
+            const p = document.createElement ("p")
+            p.setAttribute ("class", "card-title")
+            p.textContent = `USD = ${element.nombreProducto.precioProducto}.00`
+            divP.appendChild (p)             
+
+        document.getElementById ("juegosIngresados").appendChild (divP)       
+    })
+
+/*///////////////////////
+FUNCION: FINALIZAR COMPRA
+///////////////////////*/    
+
+    const finalizarCompra = () => {
+        let montoFinal = 0;
+
+        listadoProductosNuevos.forEach (e => {      
+            montoFinal += parseInt (e.nombreProducto.precioProducto) 
+        })
+
+        document.getElementById ("juegosIngresados").textContent = ` Carrito: usd ${montoFinal}`
+        localStorage.removeItem ("carrito")
+        
+    }
+
+    document.getElementById ("finalizar").addEventListener ("click", () =>{
+        finalizarCompra ()
+    })
