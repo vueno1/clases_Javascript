@@ -21,8 +21,9 @@ CLASES
     }
 
     class Productos {        
-        constructor (nombrePP,categoriaPP,precioPP,stockPP) 
+        constructor (imagenPP,nombrePP,categoriaPP,precioPP,stockPP) 
         {
+            this.imagenProducto = imagenPP;
             this.nombreProducto = nombrePP;
             this.categoriaProducto = categoriaPP;
             this.precioProducto = precioPP;
@@ -81,6 +82,7 @@ FUNCION: PARA AGREGAR PRODUCTOS
 
         const producto = new Productos ({
 
+            imagenProducto: document.getElementById ("imagenP").value,
             nombreProducto: document.getElementById ("nombreP").value, 
             categoriaProducto: document.getElementById ("categoriaP").value,
             precioProducto: document.getElementById ("precioP").value,

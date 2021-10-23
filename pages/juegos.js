@@ -29,13 +29,13 @@ imprimo cada producto en mi HTML
         divP.setAttribute ("class", "card-body")
 
             const img = document.createElement ("img")
-            img.setAttribute ("src", "../source/juegos/TLOU2/01.jpg") // FIXME = como poner img correspondiente?
+            img.src = `${element.imagenProducto.imagenProducto}`
             img.setAttribute ("class", "styleImg")
             divP.appendChild (img)
 
             const h5 = document.createElement ("h5")
             h5.setAttribute ("class", "card-title")
-            h5.textContent = `${element.nombreProducto.nombreProducto}`
+            h5.textContent = `${element.imagenProducto.nombreProducto}`
             h5.style.fontWeight = "bolder"
             h5.style.paddingTop = "20px"
             divP.appendChild (h5)
@@ -47,7 +47,7 @@ imprimo cada producto en mi HTML
 
             const p = document.createElement ("p")
             p.setAttribute ("class", "card-title")
-            p.textContent = `USD = ${element.nombreProducto.precioProducto}.00`
+            p.textContent = `USD = ${element.imagenProducto.precioProducto}.00`
             divP.appendChild (p)
 
             const button = document.createElement ("button")

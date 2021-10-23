@@ -29,7 +29,7 @@ RECORRO MI ARRAY, E IMPRIMO EN MI HTML.
         divP.setAttribute ("class", "card-body")
 
             const img = document.createElement ("img")
-            img.setAttribute ("src", "../source/juegos/TLOU2/01.jpg") // FIXME = como poner img correspondiente?
+            img.src = `${element.imagenProducto.imagenProducto}`
             img.setAttribute ("class", "styleImg")
             divP.appendChild (img)
 
@@ -37,12 +37,12 @@ RECORRO MI ARRAY, E IMPRIMO EN MI HTML.
             h5.setAttribute ("class", "card-title")
             h5.style.fontWeight = "bolder"
             h5.style.marginTop = "20px"
-            h5.textContent = `${element.nombreProducto.nombreProducto}`
+            h5.textContent = `${element.imagenProducto.nombreProducto}`
             divP.appendChild (h5)
 
             const p = document.createElement ("p")
             p.setAttribute ("class", "card-title")
-            p.textContent = `USD = ${element.nombreProducto.precioProducto}.00`
+            p.textContent = `USD = ${element.imagenProducto.precioProducto}.00`
             divP.appendChild (p)             
 
         document.getElementById ("juegosIngresados").appendChild (divP)       
