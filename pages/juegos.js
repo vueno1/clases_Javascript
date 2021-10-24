@@ -1,7 +1,7 @@
 /*////////////////
 CREO MIS VARIABLES
 ////////////////*/
-    let listadoProductosNuevos;
+    let listadoProductosNuevos= []
     let imprimirProductos = document.getElementById ("juegosIngresados") //div donde imprimire mis productos. 
 
 /*/////////////////////////////////////////////////////////////////
