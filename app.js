@@ -25,7 +25,7 @@ CLASES  - FUNCION CONSTRUCTORA = USUARIOS
         }
     }
 
-
+    
 /*///////////////////////////////////////////
 FUNCION = CUANDO CLICKEO BOTON INICIAR SESION
 ///////////////////////////////////////////*/
@@ -167,3 +167,5 @@ botonBuscador.addEventListener ("click", (e) => {
     e.preventDefault ()
     busqueda ()
 })
+
+

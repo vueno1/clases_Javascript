@@ -35,28 +35,29 @@ RECORRO MI ARRAY, E IMPRIMO EN MI HTML.
 
             const h5 = document.createElement ("h5")
             h5.setAttribute ("class", "card-title")
-            h5.style.fontWeight = "bolder"
-            h5.style.marginTop = "20px"
             h5.textContent = `${element.imagenProducto.nombreProducto}`
             divP.appendChild (h5)
 
             const p = document.createElement ("p")
-            p.setAttribute ("class", "card-title")
+            p.setAttribute ("class", "precio")
             p.textContent = `USD = ${element.imagenProducto.precioProducto}.00`
             divP.appendChild (p)             
 
         document.getElementById ("juegosIngresados").appendChild (divP)       
     })
 
+    
+
 /*///////////////////////
 FUNCION: FINALIZAR COMPRA
 ///////////////////////*/    
 
     const finalizarCompra = () => {
+
         let montoFinal = 0;
 
         listadoProductosNuevos.forEach (e => {      
-            montoFinal += parseInt (e.nombreProducto.precioProducto) 
+            montoFinal += parseInt (e.imagenProducto.precioProducto) 
         })
 
         document.getElementById ("juegosIngresados").textContent = ` Carrito: usd ${montoFinal}`
@@ -64,6 +65,7 @@ FUNCION: FINALIZAR COMPRA
         
     }
 
-    document.getElementById ("finalizar").addEventListener ("click", () =>{
+    document.getElementById ("finalizar").addEventListener ("click", (e) =>{
+        e.preventDefault ()
         finalizarCompra ()
     })
