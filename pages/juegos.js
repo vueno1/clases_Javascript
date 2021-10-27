@@ -94,10 +94,36 @@ FUNCION PARA COMPRAR
         localStorage.setItem ("carrito", JSON.stringify (carrito))
     }
 
+/*////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+/*//////////////////////////////////////////////////////////////////////
+USO DEL JQUERY - IMPRIMIR MERCHANDISING EN MI HTML Y BOTON PARA COMPRAR
+///////////////////////////////////////////////////////////////////////*/
+
+for (const merchan of listaMerchandising) {
+
+    let indexM = listaMerchandising.indexOf (merchan)
+
+    $("#listaMerch").append (`
+
+    <div class="card-body">
+        <img class="styleImg" src= ${merchan.imagenMerch.imagenMerch}>
+        <h5 class="card-title">${merchan.imagenMerch.nombreMerch} </h5>
+        <p class="comentario">${merchan.imagenMerch.comentarioMerch} </p>
+        <p class="precio"> USD = ${merchan.imagenMerch.precioMerch} .00</p>
+        <button id= "btn_comprar" onclick= "comprarM (${indexM})">COMPRAR</button>
+    </div>
+    `)  
+    
+}
+
 
  /*//////////////////////////////////
 imprimo cada MERCH en mi HTML
 ///////////////////////////////////*/
+
+/*
 listaMerchandising.forEach (element => {
 
     let indexM = listaMerchandising.indexOf (element)
@@ -136,6 +162,8 @@ listaMerchandising.forEach (element => {
 
 })
 
+*/
+
 
 /*////////////////////////////////////
 FUNCION PARA COMPRAR MERCHANDISING
@@ -151,3 +179,5 @@ const comprarM = (indexM) => {
     carrito.push (listaMerchandising [indexM])
     localStorage.setItem ("carrito", JSON.stringify (carrito))
 }
+
+

@@ -803,3 +803,9 @@ Almacenar datos (clave-valor) en el Storage y recuperarlos.
   </div>
   
 </div>
+
+-----------------------------------------------------
+
+
+-Utilizar métodos jQuery para incorporar elementos al DOM.
+-Utilizar métodos jQuery para determinar respuesta a ciertos eventos.

@@ -2,7 +2,7 @@
 CREO MIS VARIABLES
 ////////////////*/
     let listadoProductosNuevos = []
-    let imprimirProductos = document.getElementById ("carrito") //div donde imprimire mis productos. 
+    let imprimirProductos = document.getElementById ("juegosIngresados") //div donde imprimire mis productos. 
     let botonFinalizar;
 
 /*////////////////////////////////////////////////////////////////////////////
@@ -23,8 +23,13 @@ CONDICIONAL: en el caso que haya o no informacion en mi localstorage "carrito"
 /*//////////////////////////////////
 RECORRO MI ARRAY, E IMPRIMO EN MI HTML.
 ///////////////////////////////////*/
+
     listadoProductosNuevos.forEach (element => {
 
+
+        /*/////////////////////////
+        IMPRIMIR DIV CON PRODUCTOS 
+        ////////////////////////*/
         const divP = document.createElement ("div")
         divP.setAttribute ("class", "card-body")
 
@@ -43,10 +48,38 @@ RECORRO MI ARRAY, E IMPRIMO EN MI HTML.
             p.textContent = `USD = ${element.imagenProducto.precioProducto}.00`
             divP.appendChild (p)             
 
-        document.getElementById ("juegosIngresados").appendChild (divP)       
-    })
+        document.getElementById ("juegosIngresados").appendChild (divP)         
 
+
+        
+    })
     
+    
+    /*/////////////////////////////
+    IMPRIMIR DIV CON MERCHANDISING
+    /////////////////////////////*/
+listadoProductosNuevos.forEach (element => {
+    
+})
+    const divPM = document.createElement ("div")
+    divPM.setAttribute ("class", "card-body")
+
+        const imgM = document.createElement ("img")
+        imgM.src = `${element.imagenMerch.imagenMerch}`
+        imgM.setAttribute ("class", "styleImg")
+        divPM.appendChild (imgM)
+
+        const h5M = document.createElement ("h5")
+        h5M.setAttribute ("class", "card-title")
+        h5M.textContent = `${element.imagenMerch.nombreMerch}`
+        divPM.appendChild (h5M)
+
+        const pM = document.createElement ("p")
+        pM.setAttribute ("class", "precio")
+        pM.textContent = `PRECIO = USD ${element.imagenMerch.precioMerch}.00`
+        divPM.appendChild (pM)   
+
+    document.getElementById ("juegosIngresados").appendChild (divPM)       
 
 /*///////////////////////
 FUNCION: FINALIZAR COMPRA
