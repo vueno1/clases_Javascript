@@ -4,21 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>administrador</title>
+    <link rel="icon" href="../source/logos/logoUniverso.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
 
     <header class="header">
 
+        <!-- //////////////////////
+        BARRA NEGRA: TITULO Y LOGO 
+        //////////////////////////////-->
         <div class="headerBarraNegra">
-            <a href="../index.html" id="logo"><img src="../source/headerLogo.jpeg" alt="" height="20px"></a>
-            <a href="../index.html"><h1>Universo Games</h1></a>
-        </div>    
+            <a href="../index.html" id="logo"><img src="../source/logos/logoUniverso.png" alt="" height="50px"></a>
+            <a href="../index.html"><h1 id="tituloUniverso">Universo Games</h1></a>
+        </div>   
+
     
+        <!-- ////////
+        NAVEGADOR 
+        ///////////-->
         <ul class="nav">
+
+            <li class="nav-item">
+                <a class="nav-link active" href="../index.html">inicio</a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link active" href="juegos.html">juegos</a>
             </li>
@@ -35,24 +48,31 @@
     
     </header>
 
-    <main>
+    <main class="main_admin">
 
+        <!-- ////////////////
+               LOG IN 
+        ADMINISTRADOR AUTORIZADO 
+        ////////////////////// -->
         <div>
-            <!-- ///FORMULARIO PARA LOG IN /// ADMINISTRADOR AUTORIZADO ///// -->
-
             <form action="" id="formAdmin">
+                <h2>INGRESO ADMIN:</h2>
                 <input type="text" id="idAdmin" placeholder="nombre">
                 <input type="number" id="passAdm" placeholder="password">    
                 <button id="btn_confirm">log in autorizado</button>    
             </form>
         </div>       
 
-        <!-- ///SALUDO AL ADMINISTRADOR  -->
-        <div id="hola">
+        <!-- //////////////////
+        SALUDO AL ADMINISTRADOR
+        /////////////////////  -->
+        <div id="adm_hola_div">
             <h2 id="holaAdmin"></h2>
         </div>
 
-        <!-- /// FORMULARIO PARA LA CARGA DE PRODUCTOS /// -->
+        <!-- //////
+        FORMULARIOS
+        ///////// -->
         <form id="form_index">
 
             <div class="form_index2">
@@ -61,7 +81,7 @@
 
                 <div class="form-group">
                     <input type="url" class="form-control" id="imagenP" aria-describedby="emailHelp" placeholder="insertar url">
-                  </div>
+                </div>
             
                 <div class="form-group">
                   <input type="text" class="form-control" id="nombreP" aria-describedby="emailHelp" placeholder="nombre">
@@ -69,7 +89,7 @@
     
                 <div class="form-group">
                     <input type="text" class="form-control" id="comentarioP" aria-describedby="emailHelp" placeholder="comentario">
-                  </div>
+                </div>
         
                 <div class="form-group">
                     <input type="text" class="form-control" id="categoriaP" aria-describedby="emailHelp" placeholder="categoria">
@@ -87,13 +107,15 @@
 
             </div>
 
+            <!--  FORMULARIO PARA LA CARGA DE MERCH  -->
+
             <div class="form_index_merch">
 
                 <h3 class="titulo_ingreso">INGRESE MERCH</h3>
 
                 <div class="form-group">
                     <input type="url" class="form-control" id="imagenM" aria-describedby="emailHelp" placeholder="insertar url">
-                  </div>
+                </div>
             
                 <div class="form-group">
                   <input type="text" class="form-control" id="nombreM" aria-describedby="emailHelp" placeholder="nombre">
@@ -101,7 +123,7 @@
     
                 <div class="form-group">
                     <input type="text" class="form-control" id="comentarioM" aria-describedby="emailHelp" placeholder="comentario">
-                  </div>
+                </div>
         
                 <div class="form-group">
                     <input type="text" class="form-control" id="categoriaM" aria-describedby="emailHelp" placeholder="categoria">
@@ -118,6 +140,8 @@
                 <button class="boton_merch">NUEVO MERCHANDISING</button>
 
             </div>
+
+            <!--  FORMULARIO PARA LA CARGA DE NOTICIAS - IMPRIMIR EN INDEX -->
 
             <div class="form_noticias">
 

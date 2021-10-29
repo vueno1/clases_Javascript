@@ -1,19 +1,28 @@
 
-/*//////////////////////
-DECLARACION FORMULARIOS
-/////////////////////*/
+/*//////////////////////////////////
+DECLARACION VARIABLES Y CONSTANTES
+//////////////////////////////////*/
 
+    let btnInicio = document.getElementById ("botonInicioSesion")
     let formulario = document.getElementById ("formUsuario") // declaro "formulario" = log in 
     let formularioRegistro = document.getElementById ("formRegistro") // declaro "formularioRegistro" = sign in
     let listaUsuario = [] //declaracion array listado
     const listadoProductosNuevos = JSON.parse (localStorage.getItem ("producto"))
-    let inputBuscador;
+    let inputBuscador = document.getElementById ("inputBusqueda")
     let botonBuscador = document.getElementById ("boton_busqueda")
 
+    let imagen1 = document.getElementById ("img_1")
+    let imagen2 = document.getElementById ("img_2")
+    let imagen3 = document.getElementById ("img_3")
 
-/*///////////////////////////////
+    let boton1 = document.getElementById ("btn1")
+    let boton2 = document.getElementById ("btn2")
+    let boton3 = document.getElementById ("btn3")
+
+
+/*/////////////////////////////////////////
 CLASES  - FUNCION CONSTRUCTORA = USUARIOS
-////////////////////////////////*/
+////////////////////////////////////////*/
     class Usuarios {
 
         constructor (nombreUS, apellidoUS, mailUS, idUS, contraseñaUS) {
@@ -25,11 +34,45 @@ CLASES  - FUNCION CONSTRUCTORA = USUARIOS
         }
     }
 
+
+/*//////////////////////////
+JQUERY → FADE IN / FADE OUT
+////////////////////////*/
+
+$(boton1).on ("click", () => {
+    $(imagen1).fadeIn (1000)
+    $(imagen3).hide ()
+    $(imagen2).hide ()
+
+})
+
+$(boton2).on ("click", () => {
+    $(imagen2).fadeIn (1000)
+    $(imagen1).hide ()
+    $(imagen3).hide ()
+})
+
+$(boton3).on ("click", () => {
+    $(imagen3).fadeIn (1000)
+    $(imagen2).hide ()
+    $(imagen1).hide ()
+})
     
 /*///////////////////////////////////////////
 FUNCION = CUANDO CLICKEO BOTON INICIAR SESION
 ///////////////////////////////////////////*/
 
+    /*///////////////////
+    JQUERY → SLIDETOGGLE 
+    ////////////////////*/
+    $("#botonInicioSesion").on ("click", () => {
+        $(formulario).slideToggle (1000)
+        formulario.style.display = "flex"
+        formulario.style.position = "absolute"
+        formulario.style.flexDirection = "column"
+    })
+
+    /*
     const botonInicio = () => { // declaro una funcion para el boton = "botonInicio"    
         if (formulario.style.display === "none") {
             formulario.style.display = "flex" // al clickear, me despliega el formulario q estaba en display = none
@@ -40,20 +83,25 @@ FUNCION = CUANDO CLICKEO BOTON INICIAR SESION
         }
     }
 
-
     document.getElementById ("botonInicioSesion").addEventListener ("click", () => { // llamo al boton inicio sesion para que loggee al usuario ya registrado.
         botonInicio ()
     })
+    */
 
 /*-//////////////////////////////////////
 FUNCION = CUANDO TOCO BOTON PARA REGISTRO
 ////////////////////////////////////////*/
 
     const registro = () => {
+
         formulario.style.display = "none" // desaparece el div formulario 
         formularioRegistro.style.display = "flex" // y aparece el otro formulario para registrarse 
         formularioRegistro.style.position = "absolute"
         formularioRegistro.style.flexDirection = "column"
+
+        btnInicio.addEventListener ("click", () => {
+            formularioRegistro.style.display = "none"
+        })
     }
 
     document.getElementById ("usuarioNuevo").addEventListener ("click", (e) => {
@@ -137,6 +185,8 @@ FUNCION = PARA BOTON DE LOG IN
 /*///////////////////////////////////////////////
 FUNCION PARA TOCAR EN EL BODY Y CERRAR FORMULARIOS
 //////////////////////////////////////////////*/
+
+/*
     const tocarMain = () => {
         document.getElementById ("formUsuario").style.display = "none"
         document.getElementById ("formRegistro").style.display = "none"
@@ -146,16 +196,25 @@ FUNCION PARA TOCAR EN EL BODY Y CERRAR FORMULARIOS
         tocarMain ()
     })
 
+    */
+
+
 /*////////////////////
 FUNCION: BUSCADOR 
 ////////////////////*/
 
-const busqueda = () => {  
-    inputBuscador = document.getElementById ("inputBusqueda").value  
+// FIXME: tengo que averiguar como evitar los espacios en blanco en busqueda.
 
+const busqueda = () => {  
+    
     listadoProductosNuevos.forEach (element => {
-        if (inputBuscador === element.nombreProducto.nombreProducto) {
-            window.location.href = "pages/juegos.html"
+
+        let valorBusqueda = inputBuscador.value  
+
+        if (valorBusqueda === element.imagenProducto.nombreProducto) {
+
+            window.location.href = "pages/juegos.html" 
+       
         }
         else {
            console.log ("error")
@@ -166,6 +225,46 @@ const busqueda = () => {
 botonBuscador.addEventListener ("click", (e) => { 
     e.preventDefault ()
     busqueda ()
+})
+
+
+/*//////////////
+DIV DE NOTICIAS
+//////////////*/
+
+let info;
+
+
+if (localStorage.getItem ("noti") == null) {
+    console.log ("no hay noticias")             
+
+} else {
+    info = JSON.parse (localStorage.getItem ("noti"))
+}
+
+info.forEach (element => {
+    
+    const divN = document.createElement ("div")
+    divN.setAttribute ("class", "Noticia")
+    
+        const imgN = document.createElement ("img")
+        imgN.scr = `${element.imagenNN.imagenNN}`
+        divN.appendChild (imgN)
+    
+        const h5N = document.createElement ("h5")
+        h5N.textContent = `${element.imagenNN.tituloNN}`
+        divN.appendChild (h5N)
+    
+        const pN = document.createElement ("p")
+        pN.textContent = `${element.imagenNN.comentariosNN}`
+        divN.appendChild (pN)
+    
+        const spanN = document.createElement ("span")
+        spanN.textContent = `${element.imagenNN.fechaNN}`
+        divN.appendChild (spanN)    
+    
+    document.getElementById ("index_seccion_noticias").appendChild (divN)
+
 })
 
 

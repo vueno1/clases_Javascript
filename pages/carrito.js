@@ -10,7 +10,7 @@ CONDICIONAL: en el caso que haya o no informacion en mi localstorage "carrito"
 ////////////////////////////////////////////////////////////////////////////*/
 
     if (localStorage.getItem ("carrito") == null) {
-        document.getElementById ("comentario").textContent = "no hay productos!"
+        document.getElementById ("comentario").textContent = "No hay productos en el carrito!"
 
     } else {
 

@@ -22,6 +22,7 @@ CONDICIONAL: en el caso que haya o no informacion en mi localstorage
 
     } else {
         listadoProductosNuevos = JSON.parse (localStorage.getItem ("producto"))
+        document.getElementById ("vacio").style.display = "none"
     }
 
 
@@ -31,10 +32,11 @@ CONDICIONAL: en el caso que haya o no informacion en mi localstorage
 
     if (localStorage.getItem ("merch") == null) {
         document.getElementById ("vacioM").textContent = "no hay merchandising!"
-                document.getElementsByClassName ("mainMerchandising")[0].style.display = "none" 
+        document.getElementsByClassName ("mainMerchandising")[0].style.display = "none" 
 
     } else {
         listaMerchandising = JSON.parse (localStorage.getItem ("merch"))
+        document.getElementById ("vacioM").style.display = "none"
     }
 
 /*//////////////////////////////////
@@ -180,4 +182,4 @@ const comprarM = (indexM) => {
     localStorage.setItem ("carrito", JSON.stringify (carrito))
 }
 
-
+//FIXME: ver como ir descontando productos al momento de comprar.

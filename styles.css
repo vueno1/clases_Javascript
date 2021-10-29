@@ -27,9 +27,25 @@
     justify-content:space-between;
 }
 
+#logo {
+    margin: 20px;
+}
+
+#tituloUniverso {
+    font-size: 50px;
+    font-style: italic;
+}
+
 .headerBarraNegra h1 {
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+}
+
+.index_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(168, 165, 165);
 }
 
 .nav {
@@ -41,7 +57,7 @@
     flex-direction: row;
     padding-right: 20px;
     align-items: center;
-    background-color: white;
+    background-color: rgb(168, 165, 165);
 }
 
 #botonInicioSesion {
@@ -70,25 +86,66 @@
 
 
 
-/****************************************************************
---------------index main-----------------------------------------
-*****************************************************************/
-
+/*/////////////
+INDEX-MAIN
+/////////////*/
 
 .mainIndex {
-    padding-top: 80px;
+    padding-top: 150px;
 }
 
-/*---------------1°SECCION: PROPAGANDA-------------------------*/
 .mainImagenPropaganda {
     width: 100%;
     background-color: black;
     align-items: center;
     margin-bottom: 50px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    height: 600px;
+}
+
+#img_1 {
+    padding-top: 150px;
+}
+
+#img_2 { 
+    display: none;
+    padding-top: 150px;
+}
+
+#img_3 { 
+    display: none; 
+    padding-top: 150px;
+}
+
+.img_1_display {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.img_2_display {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.img_3_display {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.main_imagen_button {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
 }
 
 
-/*--------------footer----------------------------*/
+
 .footer {
     bottom: 0;
     margin-top: 50px;
@@ -101,11 +158,19 @@
     display: flex;
     flex-direction: column;
 }
+
+
+
+
 /*/////////////////////////////////////////////////////////////////*/
 
 /*////////////
 HTML = JUEGOS 
 ///////////*/
+
+.main_juegos {
+    padding-top: 100px;
+}
 
 .mainJuegosMuestra {
     display: flex;
@@ -171,30 +236,47 @@ HTML = JUEGOS
 .mainMerchandising {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
     justify-content: center;
-    align-items: center;
+    margin: 100px 0 ; 
     
 }
 
-
-/*///////////////////////////////////////////////////////////////////*/
-/*-------------------------------------------------------*/
-
-main {
-    padding-top: 100px;
+#listaMerch {
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    justify-content: center;
+    grid-gap: 20px;
+    padding-top: 50px;
 }
 
-#form_index {
-    display: none;
+#vacio {
+    text-align: center;
+    font-family: 'Noto Sans Mono', monospace;
+    color: white;
+    font-size: 50px;
+    background-image: url(./source/juegos/TLOU2/background.png);
+    margin: 100px 0;
 }
 
+#vacioM {
+    text-align: center;
+    padding: 50px;
+    font-family: 'Noto Sans Mono', monospace;
+    color: white;
+    font-size: 50px;
+    background-image: url(./source/juegos/TLOU2/background.png);
+    margin: 100px 0;
+}
 
 /**********************************************************************/
 
 /*//////////
 CARRITO HTML 
 //////////*/
+
+.main_carrito {
+    padding-top: 200px;
+}
 
 #carrito {
     display: flex;
@@ -211,18 +293,35 @@ CARRITO HTML
 }
 
 #comentario {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     font-family: 'Noto Sans Mono', monospace;
     border: rgba(128, 128, 128, 0.247) solid;
     border-radius: 20px;
     border-width: thin;
-    padding: 20px;
+    margin-bottom: 450px;
+
+    
 }
 
 
-/*/////////////
+/*////////
 ADMIN HTML 
 /////////*/
+
+#formAdmin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 280px;
+    padding-top: 200px;
+}
+
+#idAdmin {
+    margin: 10px;
+}
 
 
 #btn_confirm {
@@ -230,10 +329,19 @@ ADMIN HTML
     border-radius: 20px;
     color: white;
     padding: 0 10px 0 10px; 
+    margin-top: 10px;
+}
+
+#adm_hola_div {
+    padding: 50px 0;
+    font-family: 'Noto Sans Mono', monospace;
+    color: blue;
+    font-style: italic;
 }
 
 #form_index {
-    flex-direction: column;
+    display: none;
+    flex-direction: row;
     margin: 20px ;
     justify-content: center;
     align-items: center;
@@ -242,23 +350,39 @@ ADMIN HTML
 .form_index2 {
     display: flex;
     flex-direction: column;
-    margin: 20px 0 20px 0;
-    border: black solid;
+    margin: 20PX;
+    border: #00000062  solid;
     border-width: thin;
     padding: 20px;
 
 }
 
 .form_index_merch {
-    border: black solid;
+    border: #00000062  solid;
     border-width: thin;
-    margin-top: 20px;
+    margin: 20px;
     padding: 20px;
 }
 
 .form_noticias {
-    border: black solid;
+    border: #00000062 solid;
     border-width: thin;
-    margin-top: 20px;
+    margin: 20px;
     padding: 20px;
+}
+
+.boton_merch {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+
+.boton_noticias {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 5px;
+    padding: 5px 20px;
 }

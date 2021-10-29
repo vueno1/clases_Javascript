@@ -809,3 +809,11 @@ Almacenar datos (clave-valor) en el Storage y recuperarlos.
 
 -Utilizar métodos jQuery para incorporar elementos al DOM.
 -Utilizar métodos jQuery para determinar respuesta a ciertos eventos.
+
+-----------------------------
+NOTA DEL TUTOR:
+
+el tipo de error que te aparece se debe a que imagenProductor no se 
+está enviando correctamente al hacer el llamado (linea 37 de carrito.js)
+ y por eso aparece como undefined. Debes reveer porque no te está trayendo 
+ correctamente esa información.
