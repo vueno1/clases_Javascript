@@ -144,6 +144,34 @@ INDEX-MAIN
     padding-left: 20px;
 }
 
+#index_seccion_noticias {
+   grid-template-columns: 500px 500px 500px;
+   justify-content: center;
+}
+
+.noticias_titulo {
+    text-align: center;
+    font-family:'Roboto', sans-serif;
+    font-size: 50px;
+    font-style: italic;
+    margin: 20px;
+}
+
+.Noticia {
+    display: flex;
+    flex-direction: column;
+    border: grey solid;
+    border-width: thin;
+    border-radius: 5px;
+    margin: 50px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgNoti {
+    display: flex;
+}
 
 
 .footer {

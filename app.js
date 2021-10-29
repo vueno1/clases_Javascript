@@ -36,7 +36,7 @@ CLASES  - FUNCION CONSTRUCTORA = USUARIOS
 
 
 /*//////////////////////////
-JQUERY → FADE IN / FADE OUT
+JQUERY → FUNCIONES = FADE IN / FADE OUT
 ////////////////////////*/
 
 $(boton1).on ("click", () => {
@@ -57,6 +57,37 @@ $(boton3).on ("click", () => {
     $(imagen2).hide ()
     $(imagen1).hide ()
 })
+
+
+/*///////////////////////////////////////////////////////////////////////
+JQUERY → FUNCION ANIMATE PARA SCROLLEAR DESDE +INFO HASTA LAS NOTICIAS
+/////////////////////////////////////////////////////////////////////*/
+$("#btn_img1").click (function () {
+
+    $('html, body').animate({
+    scrollTop: $(".Noticia").offset().top
+    }, 
+    
+    2000);
+});
+
+$("#btn_img2").click (function () {
+
+    $('html, body').animate({
+    scrollTop: $(".Noticia").offset().top
+    }, 
+    
+    2000);
+});
+
+$("#btn_img3").click (function () {
+
+    $('html, body').animate({
+    scrollTop: $(".Noticia").offset().top
+    }, 
+    
+    2000);
+});
     
 /*///////////////////////////////////////////
 FUNCION = CUANDO CLICKEO BOTON INICIAR SESION
@@ -236,10 +267,12 @@ let info;
 
 
 if (localStorage.getItem ("noti") == null) {
-    console.log ("no hay noticias")             
+    console.log ("no hay noticias")  
+    document.getElementById ("index_seccion_noticias").style.display = "none"           
 
 } else {
     info = JSON.parse (localStorage.getItem ("noti"))
+    document.getElementById ("index_seccion_noticias").style.display = "grid"
 }
 
 info.forEach (element => {
@@ -248,7 +281,8 @@ info.forEach (element => {
     divN.setAttribute ("class", "Noticia")
     
         const imgN = document.createElement ("img")
-        imgN.scr = `${element.imagenNN.imagenNN}`
+        imgN.src = `${element.imagenNN.imagenNN}`
+        imgN.setAttribute ("class", "imgNoti")
         divN.appendChild (imgN)
     
         const h5N = document.createElement ("h5")
@@ -266,5 +300,7 @@ info.forEach (element => {
     document.getElementById ("index_seccion_noticias").appendChild (divN)
 
 })
+
+
 
 
