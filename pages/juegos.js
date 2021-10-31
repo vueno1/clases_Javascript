@@ -44,8 +44,6 @@ imprimo cada producto en mi HTML
 ///////////////////////////////////*/
     listadoProductosNuevos.forEach (element => {
 
-        console.log (element)
-
         let index = listadoProductosNuevos.indexOf (element)
 
 
@@ -174,14 +172,14 @@ FUNCION PARA COMPRAR MERCHANDISING
 ////////////////////////////////////*/
 const comprarM = (indexM) => {
 
-    if (localStorage.getItem ("carrito") == null) {
+    if (localStorage.getItem ("carritoM") == null) {
         carrito = []
 
     } else {
-        carrito = JSON.parse (localStorage.getItem ("carrito"))
+        carrito = JSON.parse (localStorage.getItem ("carritoM"))
     }
     carrito.push (listaMerchandising [indexM])
-    localStorage.setItem ("carrito", JSON.stringify (carrito))
+    localStorage.setItem ("carritoM", JSON.stringify (carrito))
 }
 
 //FIXME: ver como ir descontando productos al momento de comprar.
