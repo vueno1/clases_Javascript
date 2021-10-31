@@ -24,40 +24,48 @@ CONDICIONAL: en el caso que haya o no informacion en mi localstorage "carrito"
 RECORRO MI ARRAY, E IMPRIMO EN MI HTML.
 ///////////////////////////////////*/
 
+for (let i = 0 ; i < listadoProductosNuevos.length; i++) {  
+   
+    const divP = document.createElement ("div")
+    divP.setAttribute ("class", "card-body")
+    
+        const img = document.createElement ("img")
+        img.src = `${listadoProductosNuevos [i].imagenProducto.imagenProducto}`
+        img.setAttribute ("class", "styleImg")
+        divP.appendChild (img)
+
+        const h5 = document.createElement ("h5")
+        h5.setAttribute ("class", "card-title")
+        h5.textContent = `${listadoProductosNuevos [i].imagenProducto.nombreProducto}`
+        divP.appendChild (h5)
+    
+        const p = document.createElement ("p")
+        p.setAttribute ("class", "precio")
+        p.textContent = `USD = ${listadoProductosNuevos [i].imagenProducto.precioProducto}.00`
+        divP.appendChild (p)             
+    
+    document.getElementById ("juegosIngresados").appendChild (divP)         
+
+    
+}
+
+
+
+/*
     listadoProductosNuevos.forEach (element => {
 
 
-        /*/////////////////////////
-        IMPRIMIR DIV CON PRODUCTOS 
-        ////////////////////////*/
-        const divP = document.createElement ("div")
-        divP.setAttribute ("class", "card-body")
-
-            const img = document.createElement ("img")
-            img.src = `${element.imagenProducto.imagenProducto}`
-            img.setAttribute ("class", "styleImg")
-            divP.appendChild (img)
-
-            const h5 = document.createElement ("h5")
-            h5.setAttribute ("class", "card-title")
-            h5.textContent = `${element.imagenProducto.nombreProducto}`
-            divP.appendChild (h5)
-
-            const p = document.createElement ("p")
-            p.setAttribute ("class", "precio")
-            p.textContent = `USD = ${element.imagenProducto.precioProducto}.00`
-            divP.appendChild (p)             
-
-        document.getElementById ("juegosIngresados").appendChild (divP)         
 
 
         
     })
-    
+    */
     
     /*/////////////////////////////
     IMPRIMIR DIV CON MERCHANDISING
     /////////////////////////////*/
+
+    /*
 listadoProductosNuevos.forEach (element => {
     
 })
@@ -81,6 +89,7 @@ listadoProductosNuevos.forEach (element => {
 
     document.getElementById ("juegosIngresados").appendChild (divPM)       
 
+    */
 /*///////////////////////
 FUNCION: FINALIZAR COMPRA
 ///////////////////////*/    
