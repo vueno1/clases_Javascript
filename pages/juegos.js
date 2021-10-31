@@ -44,6 +44,8 @@ imprimo cada producto en mi HTML
 ///////////////////////////////////*/
     listadoProductosNuevos.forEach (element => {
 
+        console.log (element)
+
         let index = listadoProductosNuevos.indexOf (element)
 
 
