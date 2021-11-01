@@ -35,9 +35,9 @@ CLASES  - FUNCION CONSTRUCTORA = USUARIOS
     }
 
 
-/*//////////////////////////
-JQUERY → FUNCIONES = FADE IN / FADE OUT
-////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////
+JQUERY → FUNCIONES = FADE IN / FADE OUT → PARA MUESTRA DE IMAGENES DE MAIN-INDEX
+//////////////////////////////////////////////////////////////////////////////*/
 
 $(boton1).on ("click", () => {
     $(imagen1).fadeIn (1000)
@@ -59,30 +59,30 @@ $(boton3).on ("click", () => {
 })
 
 
-/*///////////////////////////////////////////////////////////////////////
-JQUERY → FUNCION ANIMATE PARA SCROLLEAR DESDE +INFO HASTA LAS NOTICIAS
-/////////////////////////////////////////////////////////////////////*/
-$("#btn_img1").click (function () {
+/*//////////////////////////////////////////////////////////////////////////
+JQUERY → FUNCION ANIMATE PARA SCROLLEAR DESDE [+INFO] HASTA SECCION NOTICIAS
+////////////////////////////////////////////////////////////////////////*/
+$("#btn_img1").click (function () { //funcion para boton 1 e imagen 1
 
-    $('html, body').animate({
+    $('html, body').animate({  //agrego scroll al tocar boton [+info]
     scrollTop: $(".Noticia").offset().top
     }, 
     
     2000);
 });
 
-$("#btn_img2").click (function () {
+$("#btn_img2").click (function () { //funcion para boton 2 e imagen 2
 
-    $('html, body').animate({
+    $('html, body').animate({ //agrego scroll al tocar boton [+info]
     scrollTop: $(".Noticia").offset().top
     }, 
     
     2000);
 });
 
-$("#btn_img3").click (function () {
+$("#btn_img3").click (function () { //funcion para boton 3 e imagen 3
 
-    $('html, body').animate({
+    $('html, body').animate({ //agrego scroll al tocar boton [+info]
     scrollTop: $(".Noticia").offset().top
     }, 
     
@@ -93,9 +93,9 @@ $("#btn_img3").click (function () {
 FUNCION = CUANDO CLICKEO BOTON INICIAR SESION
 ///////////////////////////////////////////*/
 
-    /*///////////////////
-    JQUERY → SLIDETOGGLE 
-    ////////////////////*/
+    /*///////////////////////////////////////////////////////////////////////////
+    JQUERY → SLIDETOGGLE  → para mostrar menu despleglable en boton iniciar sesion
+    ////////////////////////////////////////////////////////////////////////////*/
     $("#botonInicioSesion").on ("click", () => {
         $(formulario).slideToggle (1000)
         formulario.style.display = "flex"
@@ -104,6 +104,7 @@ FUNCION = CUANDO CLICKEO BOTON INICIAR SESION
     })
 
     /*
+    misma opcion hecha con JS.
     const botonInicio = () => { // declaro una funcion para el boton = "botonInicio"    
         if (formulario.style.display === "none") {
             formulario.style.display = "flex" // al clickear, me despliega el formulario q estaba en display = none
@@ -140,9 +141,9 @@ FUNCION = CUANDO TOCO BOTON PARA REGISTRO
         registro ()
     })
 
-/*//////////////////////////////////////////
-FUNCION = CUANDO TOCO BOTON PARA AGREGAR USUARIO
-///////////////////////////////////////////*/
+/*//////////////////////////////////////////////
+FUNCION = CUANDO TOCO BOTON PARA [AGREGAR USUARIO]
+///////////////////////////////////////////////*/
     const agregarUsuario = () => {
 
         const usuario = new Usuarios ({
@@ -174,7 +175,7 @@ FUNCION = CUANDO TOCO BOTON PARA AGREGAR USUARIO
     })
 
 /*//////////////////////////////
-FUNCION = PARA BOTON DE LOG IN 
+FUNCION = PARA BOTON DE [LOG IN] 
 //////////////////////////////*/
     const login = () => {
         const idUsuario = document.getElementById ("idUsuario").value // valor del input consultando ID, y declaracion de variable.
@@ -213,26 +214,10 @@ FUNCION = PARA BOTON DE LOG IN
         login ()
     })
 
-/*///////////////////////////////////////////////
-FUNCION PARA TOCAR EN EL BODY Y CERRAR FORMULARIOS
-//////////////////////////////////////////////*/
 
-/*
-    const tocarMain = () => {
-        document.getElementById ("formUsuario").style.display = "none"
-        document.getElementById ("formRegistro").style.display = "none"
-    }
-
-    document.getElementsByTagName ("main") [0].addEventListener ("click", () => {
-        tocarMain ()
-    })
-
-    */
-
-
-/*////////////////////
-FUNCION: BUSCADOR 
-////////////////////*/
+/*//////////////////////////////
+FUNCION: PARA INPUT → BUSCADOR 
+//////////////////////////////*/
 
 // FIXME: tengo que averiguar como evitar los espacios en blanco en busqueda.
 
@@ -259,12 +244,17 @@ botonBuscador.addEventListener ("click", (e) => {
 })
 
 
-/*//////////////
-DIV DE NOTICIAS
-//////////////*/
 
-let info;
 
+/*//////////////////////////
+SECCION → DIV DE NOTICIAS
+/////////////////////*/
+
+let info; //declaro info como variable para despues traer informacion de mi localstorage (noti)
+
+/*///////////////////////////////////////////////////////
+CONDICIONALES EN EL CASO Q [NOTI] ESTE VACIO O LLENO
+//////////////////////////////////////////////////////*/
 
 if (localStorage.getItem ("noti") == null) {
     console.log ("no hay noticias")  
@@ -275,6 +265,9 @@ if (localStorage.getItem ("noti") == null) {
     document.getElementById ("index_seccion_noticias").style.display = "grid"
 }
 
+/*/////////////////////////////////////////////////////////////////////////////////////////
+RECORRO MI ARRAY PARA OBTENER INFORMACION  Y LA IMPRIMI EN MAIN-INDEX → SECCION NOTICIAS
+/////////////////////////////////////////////////////////////////////////////////////////*/
 info.forEach (element => {
     
     const divN = document.createElement ("div")
@@ -301,6 +294,56 @@ info.forEach (element => {
 
 })
 
+/*/////////////////////////////////////////////////////////////////////////////////
+API → FREE-TO-PLAY PARA OBTENER INFORMACION DE JUEGOS E IMPRIMO EN MI INDEX HTML.
+//////////////////////////////////////////////////////////////////////////////////*/
 
+const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://free-to-play-games-database.p.rapidapi.com/api/games?platform=pc",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+		"x-rapidapi-key": "38a0c531c9mshee974d3ce2f0195p17dd9djsnb55ed776f0a6"
+	}
+};
 
+$("#api").prepend (`<button id="btnApi"> CHEQUEA! → THE BEST FREE-TO-PLAY GAMES </button>`)
+
+$(`#btnApi`).click ( () => {
+
+    $("#api_description").css ("display", "grid")
+
+    $.get (settings, (respuesta, estado) => {
+
+        if (estado == "success") {
+
+            console.log (respuesta)
+
+            for (let i = 0; i < respuesta.length; i++ ) { 
+                
+                $("#api_description").prepend (
+                    `
+                    <div class="card" style="width: 18rem;">
+                        <img src="${respuesta [i].thumbnail}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">${respuesta [i].title}</h5>
+                            <p class="card-text">${respuesta [i].short_description}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">${respuesta [i].platform}</li>
+                            <li class="list-group-item">${respuesta [i].publisher}</li>
+  
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">${respuesta [i].game_url}</a>
+                        </div>
+                    </div>                 
+                    `
+                )
+            }
+        }
+    })
+})
 
