@@ -120,53 +120,6 @@ for (const merchan of listaMerchandising) {
     
 }
 
-
- /*//////////////////////////////////
-imprimo cada MERCH en mi HTML
-///////////////////////////////////*/
-
-/*
-listaMerchandising.forEach (element => {
-
-    let indexM = listaMerchandising.indexOf (element)
-
-
-    const divPM = document.createElement ("div")
-    divPM.setAttribute ("class", "card-body")
-
-        const imgM = document.createElement ("img")
-        imgM.src = `${element.imagenMerch.imagenMerch}`
-        imgM.setAttribute ("class", "styleImg")
-        divPM.appendChild (imgM)
-
-        const h5M = document.createElement ("h5")
-        h5M.setAttribute ("class", "card-title")
-        h5M.textContent = `${element.imagenMerch.nombreMerch}`
-        divPM.appendChild (h5M)
-
-        const pM1 = document.createElement ("p")
-        pM1.setAttribute ("class", "comentario")
-        pM1.textContent = `${element.imagenMerch.comentarioMerch}`
-        divPM.appendChild (pM1)
-
-        const pM = document.createElement ("p")
-        pM.setAttribute ("class", "precio")
-        pM.textContent = `PRECIO = USD ${element.imagenMerch.precioMerch}.00`
-        divPM.appendChild (pM)
-
-        const buttonM = document.createElement ("button")
-        buttonM.setAttribute ("id", "btn_comprar")
-        buttonM.setAttribute ("onclick", `comprarM (${indexM})`)
-        buttonM.textContent = "COMPRAR"
-        divPM.appendChild (buttonM)      
-
-    document.getElementById ("listaMerch").appendChild (divPM)
-
-})
-
-*/
-
-
 /*////////////////////////////////////
 FUNCION PARA COMPRAR MERCHANDISING
 ////////////////////////////////////*/
@@ -183,3 +136,5 @@ const comprarM = (indexM) => {
 }
 
 //FIXME: ver como ir descontando productos al momento de comprar.
+
+

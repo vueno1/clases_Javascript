@@ -10,7 +10,9 @@
     box-sizing: 0;
 }
 
-/*--------header----------------------*/
+/*////////////////////////////
+HEADER PARA TODAS LAS PAGINAS
+/////////////////////////////*/
 
 .header {
     display: flex;
@@ -29,6 +31,10 @@
 
 #logo {
     margin: 20px;
+}
+
+.headerBarraNegra a {
+    text-decoration: none;
 }
 
 #tituloUniverso {
@@ -137,11 +143,76 @@ INDEX-MAIN
     color: white;
 }
 
+.img1_h2_p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.img2_h2_p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.img3_h2_p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px; 
+}  
+
+.h2_titulos {
+    font-family: 'Franklin Gothic Medium';
+    font-size: 50px;
+}
+
+#btn_img1 {
+    color: white;
+    background-color: black;
+    padding: 10px 40px;
+    border: white solid;
+}
+
+#btn_img2 {
+    color: white;
+    background-color: black;
+    padding: 10px 40px;
+    border: white solid;
+}
+
+#btn_img3 {
+    color: white;
+    background-color: black;
+    padding: 10px 40px;
+    border: white solid; 
+}
+
 .main_imagen_button {
     position: absolute;
     display: flex;
     flex-direction: column;
     padding-left: 20px;
+}
+
+#btn1 {
+    margin: 10px;
+    border: grey solid;
+    border-width: thin;
+}
+
+#btn2 {
+    margin: 10px;
+    border: grey solid;
+    border-width: thin;
+}
+
+#btn3 {
+    margin: 10px;
+    border: grey solid;
+    border-width: thin;
 }
 
 #index_seccion_noticias {
@@ -151,13 +222,13 @@ INDEX-MAIN
 
 .noticias_titulo {
     text-align: center;
-    font-family:'Roboto', sans-serif;
-    font-size: 50px;
+    font-family:'Franklin Gothic Medium';
+    font-size: 60px;
     font-style: italic;
     margin: 20px;
 }
 
-.Noticia {
+.noticia { /*///CLASE → CREADO EN JS////*/
     display: flex;
     flex-direction: column;
     border: grey solid;
@@ -196,6 +267,9 @@ INDEX-MAIN
     overflow: scroll;
 }
 
+/*//////////////////////////
+FOOTER EN TODAS LAS PAGINAS
+//////////////////////////*/
 
 .footer {
     bottom: 0;
@@ -209,9 +283,6 @@ INDEX-MAIN
     display: flex;
     flex-direction: column;
 }
-
-
-
 
 /*/////////////////////////////////////////////////////////////////*/
 
@@ -319,7 +390,7 @@ HTML = JUEGOS
     margin: 100px 0;
 }
 
-/**********************************************************************/
+/*////////////////////////////////////////*/
 
 /*//////////
 CARRITO HTML 
@@ -343,18 +414,11 @@ CARRITO HTML
     padding: 0 10px 0 10px;    
 }
 
-#comentario {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    font-family: 'Noto Sans Mono', monospace;
-    border: rgba(128, 128, 128, 0.247) solid;
-    border-radius: 20px;
-    border-width: thin;
-
-    
+.montoTotal {
+    display: none;
 }
 
+/*////////////////////////////////////////////////*/
 
 /*////////
 ADMIN HTML 

@@ -1,13 +1,28 @@
+/*/////////////////////////////////////////
+CLASES  - FUNCION CONSTRUCTORA = USUARIOS
+////////////////////////////////////////*/
+class Usuarios {
+    
+    constructor (nombreUS, apellidoUS, mailUS, idUS, contraseñaUS) {
+        this.nombreUs = nombreUS;
+        this.apellidoUs = apellidoUS;
+            this.mailUs = mailUS;
+            this.idUs = idUS;
+            this.contraseñaUs = contraseñaUS;
+        }
+    }
 
 /*//////////////////////////////////
 DECLARACION VARIABLES Y CONSTANTES
 //////////////////////////////////*/
 
     let btnInicio = document.getElementById ("botonInicioSesion")
-    let formulario = document.getElementById ("formUsuario") // declaro "formulario" = log in 
-    let formularioRegistro = document.getElementById ("formRegistro") // declaro "formularioRegistro" = sign in
-    let listaUsuario = [] //declaracion array listado
+    let formulario = document.getElementById ("formUsuario") 
+    let formularioRegistro = document.getElementById ("formRegistro") 
+
+    let listaUsuario = [] 
     const listadoProductosNuevos = JSON.parse (localStorage.getItem ("producto"))
+
     let inputBuscador = document.getElementById ("inputBusqueda")
     let botonBuscador = document.getElementById ("boton_busqueda")
 
@@ -18,85 +33,18 @@ DECLARACION VARIABLES Y CONSTANTES
     let boton1 = document.getElementById ("btn1")
     let boton2 = document.getElementById ("btn2")
     let boton3 = document.getElementById ("btn3")
-
-
-/*/////////////////////////////////////////
-CLASES  - FUNCION CONSTRUCTORA = USUARIOS
-////////////////////////////////////////*/
-    class Usuarios {
-
-        constructor (nombreUS, apellidoUS, mailUS, idUS, contraseñaUS) {
-            this.nombreUs = nombreUS;
-            this.apellidoUs = apellidoUS;
-            this.mailUs = mailUS;
-            this.idUs = idUS;
-            this.contraseñaUs = contraseñaUS;
-        }
-    }
-
-
-/*///////////////////////////////////////////////////////////////////////////////
-JQUERY → FUNCIONES = FADE IN / FADE OUT → PARA MUESTRA DE IMAGENES DE MAIN-INDEX
-//////////////////////////////////////////////////////////////////////////////*/
-
-$(boton1).on ("click", () => {
-    $(imagen1).fadeIn (1000)
-    $(imagen3).hide ()
-    $(imagen2).hide ()
-
-})
-
-$(boton2).on ("click", () => {
-    $(imagen2).fadeIn (1000)
-    $(imagen1).hide ()
-    $(imagen3).hide ()
-})
-
-$(boton3).on ("click", () => {
-    $(imagen3).fadeIn (1000)
-    $(imagen2).hide ()
-    $(imagen1).hide ()
-})
-
-
-/*//////////////////////////////////////////////////////////////////////////
-JQUERY → FUNCION ANIMATE PARA SCROLLEAR DESDE [+INFO] HASTA SECCION NOTICIAS
-////////////////////////////////////////////////////////////////////////*/
-$("#btn_img1").click (function () { //funcion para boton 1 e imagen 1
-
-    $('html, body').animate({  //agrego scroll al tocar boton [+info]
-    scrollTop: $(".Noticia").offset().top
-    }, 
     
-    2000);
-});
-
-$("#btn_img2").click (function () { //funcion para boton 2 e imagen 2
-
-    $('html, body').animate({ //agrego scroll al tocar boton [+info]
-    scrollTop: $(".Noticia").offset().top
-    }, 
+    let info; //declaro info como variable para despues traer informacion de mi localstorage (noti)
     
-    2000);
-});
-
-$("#btn_img3").click (function () { //funcion para boton 3 e imagen 3
-
-    $('html, body').animate({ //agrego scroll al tocar boton [+info]
-    scrollTop: $(".Noticia").offset().top
-    }, 
-    
-    2000);
-});
     
 /*///////////////////////////////////////////
 FUNCION = CUANDO CLICKEO BOTON INICIAR SESION
 ///////////////////////////////////////////*/
 
-    /*///////////////////////////////////////////////////////////////////////////
-    JQUERY → SLIDETOGGLE  → para mostrar menu despleglable en boton iniciar sesion
-    ////////////////////////////////////////////////////////////////////////////*/
-    $("#botonInicioSesion").on ("click", () => {
+/*///////////////////////////////////////////////////////////////////////////
+JQUERY → SLIDETOGGLE  → para mostrar menu despleglable en boton iniciar sesion
+////////////////////////////////////////////////////////////////////////////*/
+$("#botonInicioSesion").on ("click", () => {
         $(formulario).slideToggle (1000)
         formulario.style.display = "flex"
         formulario.style.position = "absolute"
@@ -104,7 +52,7 @@ FUNCION = CUANDO CLICKEO BOTON INICIAR SESION
     })
 
     /*
-    misma opcion hecha con JS.
+    /////misma opcion hecha con JS/////////
     const botonInicio = () => { // declaro una funcion para el boton = "botonInicio"    
         if (formulario.style.display === "none") {
             formulario.style.display = "flex" // al clickear, me despliega el formulario q estaba en display = none
@@ -130,7 +78,7 @@ FUNCION = CUANDO TOCO BOTON PARA REGISTRO
         formularioRegistro.style.display = "flex" // y aparece el otro formulario para registrarse 
         formularioRegistro.style.position = "absolute"
         formularioRegistro.style.flexDirection = "column"
-
+        
         btnInicio.addEventListener ("click", () => {
             formularioRegistro.style.display = "none"
         })
@@ -145,21 +93,21 @@ FUNCION = CUANDO TOCO BOTON PARA REGISTRO
 FUNCION = CUANDO TOCO BOTON PARA [AGREGAR USUARIO]
 ///////////////////////////////////////////////*/
     const agregarUsuario = () => {
-
+        
         const usuario = new Usuarios ({
-
+            
             nombreUs: document.getElementById("nombre").value,
             apellidoUs: document.getElementById("apellido").value,
             mailUs: document.getElementById("mail").value,
             idUs: document.getElementById ("id").value,
             contraseñaUs: document.getElementById ("contraseña").value,
-
+            
         })
-
+        
         /*//////////////////////////////////
         SE GUARDA INFORMACION EN LOCALSTORAGE
         /////////////////////////////////////*/
-
+        
         if (localStorage.getItem ("usuario") == null) {
             listaUsuario.push (usuario)
             localStorage.setItem ("usuario", JSON.stringify (listaUsuario))
@@ -169,7 +117,7 @@ FUNCION = CUANDO TOCO BOTON PARA [AGREGAR USUARIO]
             localStorage.setItem ("usuario", JSON.stringify (nuevaListaUsuario))
         }
     }
-
+    
     document.getElementById ("btn_ingresar").addEventListener ("click", ()  => {
         agregarUsuario ()
     })
@@ -180,78 +128,124 @@ FUNCION = PARA BOTON DE [LOG IN]
     const login = () => {
         const idUsuario = document.getElementById ("idUsuario").value // valor del input consultando ID, y declaracion de variable.
         const passUsuario = document.getElementById ("passUsuario").value // valor del input consultando password, y declaracion de variable.
-    
+        
         let usuarioParseados = JSON.parse(localStorage.getItem ("usuario")) // parseo informacion y la declaro.
         let idOk = [];
         let passOk = [];
-
+        
         usuarioParseados.forEach (element => {     
             idOk.push(element.nombreUs.idUs)
             passOk.push(element.nombreUs.contraseñaUs)        
         })
-
+        
         if (idOk.includes(idUsuario) && passOk.includes(passUsuario)) {
-
+            
             document.getElementById ("botonInicioSesion").style.display = "none"
-
+            
             const hola = document.createElement ("button")
-                hola.setAttribute ("id", "botonInicioSesion")
-                hola.textContent = `Bienvenido ${idUsuario}`
-                document.getElementById ("hola").appendChild (hola)
-
+            hola.setAttribute ("id", "botonInicioSesion")
+            hola.textContent = `Bienvenido ${idUsuario}`
+            document.getElementById ("hola").appendChild (hola)
+            
             document.getElementById ("formUsuario").style.display = "none"
-
+            
             return `bienvenida ${idUsuario}`
-
+            
         } else {
             console.log ("usuario o contraseña incorrectos")
             return "usuario o contraseña incorrectos"
         }
     } 
-
+    
     document.getElementById ("logIn").addEventListener ("click", (e) => {
         e.preventDefault ()
         login ()
     })
-
-
+    
+    
 /*//////////////////////////////
 FUNCION: PARA INPUT → BUSCADOR 
 //////////////////////////////*/
 
 // FIXME: tengo que averiguar como evitar los espacios en blanco en busqueda.
-
-const busqueda = () => {  
     
-    listadoProductosNuevos.forEach (element => {
-
-        let valorBusqueda = inputBuscador.value  
-
-        if (valorBusqueda === element.imagenProducto.nombreProducto) {
-
-            window.location.href = "pages/juegos.html" 
-       
-        }
-        else {
-           console.log ("error")
-        }        
+    const busqueda = () => {  
+        
+        listadoProductosNuevos.forEach (element => {
+            
+            let valorBusqueda = inputBuscador.value  
+            
+            if (valorBusqueda === element.imagenProducto.nombreProducto) {
+                
+                window.location.href = "pages/juegos.html" 
+                
+            }
+            else {
+                console.log ("error")
+            }        
+        })
+    }
+    
+    botonBuscador.addEventListener ("click", (e) => { 
+        e.preventDefault ()
+        busqueda ()
     })
-}
 
-botonBuscador.addEventListener ("click", (e) => { 
-    e.preventDefault ()
-    busqueda ()
-})
+/*///////////////////////////////////////////////////////////////////////////////
+JQUERY → FUNCIONES = FADE IN / FADE OUT → PARA MUESTRA DE IMAGENES DE MAIN-INDEX
+//////////////////////////////////////////////////////////////////////////////*/
+    
+    $(boton1).on ("click", () => {
+        $(imagen1).fadeIn (1000)
+        $(imagen3).hide ()
+        $(imagen2).hide ()
+    
+    })
+    
+    $(boton2).on ("click", () => {
+        $(imagen2).fadeIn (1000)
+        $(imagen1).hide ()
+        $(imagen3).hide ()
+    })
+    
+    $(boton3).on ("click", () => {
+        $(imagen3).fadeIn (1000)
+        $(imagen2).hide ()
+        $(imagen1).hide ()
+    })
+    
+    
+/*//////////////////////////////////////////////////////////////////////////
+JQUERY → FUNCION ANIMATE PARA SCROLLEAR DESDE [+INFO] HASTA SECCION NOTICIAS
+////////////////////////////////////////////////////////////////////////*/
+    $("#btn_img1").click (function () { //funcion para boton 1 e imagen 1
+    
+        $('html, body').animate({  //agrego scroll al tocar boton [+info]
+        scrollTop: $("#index_noticias").offset().top
+        }, 
+        
+        1000);
+    });
+    
+    $("#btn_img2").click (function (e) { //funcion para boton 2 e imagen 2
+        e.preventDefault ()
 
-
-
-
-/*//////////////////////////
-SECCION → DIV DE NOTICIAS
-/////////////////////*/
-
-let info; //declaro info como variable para despues traer informacion de mi localstorage (noti)
-
+        $('html, body').animate({ //agrego scroll al tocar boton [+info]
+        scrollTop: $("#index_noticias").offset().top
+        }, 
+        
+        1000);
+    });
+    
+    $("#btn_img3").click (function () { //funcion para boton 3 e imagen 3
+    
+        $('html, body').animate({ //agrego scroll al tocar boton [+info]
+        scrollTop: $("#index_noticias").offset().top
+        }, 
+        
+        1000);
+    });
+    
 /*///////////////////////////////////////////////////////
 CONDICIONALES EN EL CASO Q [NOTI] ESTE VACIO O LLENO
 //////////////////////////////////////////////////////*/
@@ -271,7 +265,7 @@ RECORRO MI ARRAY PARA OBTENER INFORMACION  Y LA IMPRIMI EN MAIN-INDEX → SECCIO
 info.forEach (element => {
     
     const divN = document.createElement ("div")
-    divN.setAttribute ("class", "Noticia")
+    divN.setAttribute ("class", "noticia")
     
         const imgN = document.createElement ("img")
         imgN.src = `${element.imagenNN.imagenNN}`

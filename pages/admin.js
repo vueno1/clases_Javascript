@@ -2,12 +2,6 @@
                 PANEL ADMINISTRADOR 
 ////////////////////////////////////////////// */
 
-/*/////////////////
-DECLARO VARIABLE 
-////////////////////*/
-    let listaProductos; // DECLARACION LISTA PRODUCTOS
-    let listaMerchandising; 
-    let listaNoticias;
 
 /*///////////
 CLASES
@@ -18,7 +12,7 @@ CLASES
             this.pass = pass
         }
     }
-
+    
     class Productos {        
         constructor (imagenPP,nombrePP, comentarioPP, categoriaPP,precioPP,stockPP) 
         {
@@ -34,15 +28,15 @@ CLASES
     class Merch {        
         constructor (imagenMM, nombreMM, comentantarioMM, categoriaMM, precioMM, stockMM) 
         {
-           this.imagenMerch = imagenMM;
-           this.nombreMerch = nombreMM;
-           this.comentarioMerch = comentantarioMM;
-           this.categoriaMerch = categoriaMM;
-           this.precioMerch = precioMM;
-           this.stockMerch = stockMM;
+            this.imagenMerch = imagenMM;
+            this.nombreMerch = nombreMM;
+            this.comentarioMerch = comentantarioMM;
+            this.categoriaMerch = categoriaMM;
+            this.precioMerch = precioMM;
+            this.stockMerch = stockMM;
         }    
     }
-
+    
     
     class Noticias {
         constructor (imagenNN, tituloNN, comentariosNN, fechaNN) 
@@ -53,18 +47,24 @@ CLASES
             this.fechaNN = fechaNN;
         }
     }
-
+    
 /*////////////////////////////////////////////////////
 CREO UNA CONSTANTE = VALERIA COMO UNICO ADMINISTRADOR 
 ///////////////////////////////////////////////////*/
-
+    
     const valeria = new User ("valeria", "3333")
-
+    
+/*/////////////////
+DECLARO VARIABLE 
+/////////////////*/
+    let listaProductos; // DECLARACION LISTA PRODUCTOS
+    let listaMerchandising; 
+    let listaNoticias;
     
 /*//////////////////////////////////////////////
 CONDICIONAL SI EL LOCALSTORAGE ESTA VACIO O NO
 //////////////////////////////////////////////*/
-
+    
     /*////////////////
     CLAVE: PRODUCTO 
     /////////////////*/ 

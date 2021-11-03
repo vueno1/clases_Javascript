@@ -1,38 +1,51 @@
 /*////////////////
 CREO MIS VARIABLES
 ////////////////*/
-    let listadoProductosNuevos = []
-    let listadoMerchCompras = []
+    let listadoProductosNuevos;
+    let listadoMerchCompras;
     let imprimirProductos = document.getElementById ("juegosIngresados") //div donde imprimire mis productos. 
-    let botonFinalizar;
+    let botonFinalizar = document.getElementById ("finalizar")
+    let montoTotal = document.getElementsByClassName ("montoTotal")[0]
+    let imprimirImporte = document.getElementsByClassName ("card-title")[0]
 
 /*////////////////////////////////////////////////////////////////////////////
 CONDICIONAL: en el caso que haya o no informacion en mi localstorage "carrito"
 ////////////////////////////////////////////////////////////////////////////*/
 
+    /*////////////////
+    CARRITO PRODUCTOS
+    ////////////////*/
+
     if (localStorage.getItem ("carrito") == null) {
-        document.getElementById ("comentario").textContent = "No hay productos en el carrito!"
+        listadoProductosNuevos = []
+        document.getElementById ("comentario").textContent = "*No hay productos seleccionados!"
         
 
     } else {
-        document.getElementById ("comentario").textContent = "CARRITO COMPRA:"
+        document.getElementById ("carritoCompras").textContent = "CARRITO COMPRA:"
         listadoProductosNuevos = JSON.parse (localStorage.getItem ("carrito"))
 
-        botonFinalizar = document.getElementById ("finalizar").style.display = "flex"
+        botonFinalizar.style.display = "flex"
     }
 
-
+    /*//////////////
+    CARRITO MERCH
+    /////////////*/
 
     if (localStorage.getItem ("carritoM") == null) {
-        document.getElementById ("comentario").textContent = "No hay productos en el carrito!"
+        listadoMerchCompras = []
+        document.getElementById ("comentarioM").textContent = "*No hay merchandising seleccionado!"
 
     } else {
-        document.getElementById ("comentario").textContent = "CARRITO COMPRA:"
+        document.getElementById ("carritoCompras").textContent = "CARRITO COMPRA:"
         listadoMerchCompras = JSON.parse (localStorage.getItem ("carritoM"))
 
-        botonFinalizar = document.getElementById ("finalizar").style.display = "flex"
+        botonFinalizar.style.display = "flex"
     }
 
+/*////////////////////////////////////////////////////
+RECORRO LISTA DE PRODUCTOS E IMPRIMO EN CARRITO.HTML
+////////////////////////////////////////////////////*/
 
 
 for (let i = 0 ; i < listadoProductosNuevos.length; i++) {  
@@ -58,7 +71,9 @@ for (let i = 0 ; i < listadoProductosNuevos.length; i++) {
     document.getElementById ("juegosIngresados").appendChild (divP)         
 }
 
-
+/*///////////////////////////////////////////////
+RECORRO LISTA DE MERCH E IMPRIMO EN CARRITO.HTML
+////////////////////////////////////////////////*/
 for (let i = 0 ; i < listadoMerchCompras.length; i++) {  
    
     const divPM = document.createElement ("div")
@@ -79,36 +94,43 @@ for (let i = 0 ; i < listadoMerchCompras.length; i++) {
         pM.textContent = `PRECIO = USD ${listadoMerchCompras [i].imagenMerch.precioMerch}.00`
         divPM.appendChild (pM)   
     
-    document.getElementById ("juegosIngresados").appendChild (divPM)       
-            
+    document.getElementById ("juegosIngresados").appendChild (divPM)           
 
     
 }
 
 
-/*///////////////////////
-FUNCION: FINALIZAR COMPRA
-///////////////////////*/    
+/*//////////////////////////////////////////////////////////////////////
+FUNCION: FINALIZAR COMPRA DE AMBOS TIPOS DE COMPRAS = PRODUCTOS + MERCH
+//////////////////////////////////////////////////////////////////////*/    
 
     const finalizarCompra = () => {
 
+        //DECLARO [MONTO] PARA PRODUCTOS Y MERCH
         let montoFinalP = 0;
         let montoFinalM = 0;
 
+        //RECORRO LISTA PRODUCTOS Y SUMO PRECIOS
         listadoProductosNuevos.forEach (e => {      
             montoFinalP += parseFloat (e.imagenProducto.precioProducto) 
         })
 
+        //RECORRO LISTA MERCH Y SUMO PERCIOS
         listadoMerchCompras.forEach (e => {
             montoFinalM += parseFloat (e.imagenMerch.precioMerch)
         } )
 
-        document.getElementById ("juegosIngresados").textContent = ` Carrito: usd ${montoFinalP+montoFinalM}`
+        //AL MOMENTO DE HACER LA SUMA: SE MUESTRA TEXTO → 
+        montoTotal.style.display = "block"
+        imprimirImporte.textContent = ` TOTAL: USD ${montoFinalP+montoFinalM}.00`
+
+        imprimirProductos.style.display = "none"
+        botonFinalizar.style.display = "none"
+        document.getElementById ("carritoCompras").style.display = "none"
+
+        //SE BORRA CARRITOS
         localStorage.removeItem ("carrito")
-        localStorage.removeItem ("carritoM")
-
-
-        
+        localStorage.removeItem ("carritoM")        
     }
 
     document.getElementById ("finalizar").addEventListener ("click", (e) =>{
