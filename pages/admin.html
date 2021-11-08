@@ -12,17 +12,20 @@
 
 <body>
 
+    <!-- ///////
+    HEADER 
+///////// -->
+
     <header class="header">
-        <!-- //////////////////////
-        BARRA NEGRA: TITULO Y LOGO 
-        //////////////////////////////-->
+        
         <div class="headerBarraNegra">
             <a href="../index.html" id="logo"><img src="../source/logos/logoUniverso.png" alt="" height="50px"></a>
             <a href="../index.html"><h1 id="tituloUniverso">Universo Games</h1></a>
-        </div>     
-        <!-- ////////
-        NAVEGADOR 
-        ///////////-->
+        </div>    
+
+    <!-- ////////
+    NAVEGADOR 
+    ///////////-->
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link active" href="../index.html">inicio</a>
@@ -40,6 +43,7 @@
     </header>
 
     <main class="main_admin">
+
         <!-- ////////////////
                LOG IN 
         ADMINISTRADOR AUTORIZADO 
@@ -60,11 +64,11 @@
             <h2 id="holaAdmin"></h2>
         </div>
 
-        <!-- //////
-        FORMULARIOS
-        ///////// -->
         <form id="form_index">
-
+            
+            <!-- //////////////////////
+            FORMULARIO PARA PRODUCTOS 
+            /////////////////////// -->
             <div class="form_index2">
                 <h3 class="titulo_ingreso">INGRESE PRODUCTOS</h3>
                 <div class="form-group">
@@ -88,31 +92,11 @@
                 <button class="btn btn-primary">NUEVO PRODUCTO</button>
             </div>
 
-            <!--  FORMULARIO PARA LA CARGA DE MERCH  -->
-            <div class="form_index_merch">
-                <h3 class="titulo_ingreso">INGRESE MERCH</h3>
-                <div class="form-group">
-                    <input type="url" class="form-control" id="imagenM" aria-describedby="emailHelp" placeholder="insertar url">
-                </div>            
-                <div class="form-group">
-                  <input type="text" class="form-control" id="nombreM" aria-describedby="emailHelp" placeholder="nombre">
-                </div>    
-                <div class="form-group">
-                    <input type="text" class="form-control" id="comentarioM" aria-describedby="emailHelp" placeholder="comentario">
-                </div>        
-                <div class="form-group">
-                    <input type="text" class="form-control" id="categoriaM" aria-describedby="emailHelp" placeholder="categoria">
-                </div>        
-                <div class="form-group">
-                    <input type="number" class="form-control" id="precioM" aria-describedby="emailHelp" placeholder="precio">
-                </div>        
-                <div class="form-group">
-                    <input type="number" class="form-control" id="stockM" aria-describedby="emailHelp" placeholder="stock">
-                </div>        
-                <button class="boton_merch">NUEVO MERCHANDISING</button>
-            </div>
+           
 
-            <!--  FORMULARIO PARA LA CARGA DE NOTICIAS - IMPRIMIR EN INDEX -->
+            <!--  /////////////////////////////
+            FORMULARIO PARA INGRESAR NOTICIAS 
+        ///////////////////////////////////// -->
             <div class="form_noticias">
                 <h3 class="titulo_ingreso">INGRESE NOTICIAS</h3>
                 <div class="form-group">

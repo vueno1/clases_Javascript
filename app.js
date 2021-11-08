@@ -1,11 +1,11 @@
 /*/////////////////////////////////////////
 CLASES  - FUNCION CONSTRUCTORA = USUARIOS
 ////////////////////////////////////////*/
-class Usuarios {
-    
-    constructor (nombreUS, apellidoUS, mailUS, idUS, contraseñaUS) {
-        this.nombreUs = nombreUS;
-        this.apellidoUs = apellidoUS;
+    class Usuarios {
+        
+        constructor (nombreUS, apellidoUS, mailUS, idUS, contraseñaUS) {
+            this.nombreUs = nombreUS;
+            this.apellidoUs = apellidoUS;
             this.mailUs = mailUS;
             this.idUs = idUS;
             this.contraseñaUs = contraseñaUS;
@@ -16,25 +16,25 @@ class Usuarios {
 DECLARACION VARIABLES Y CONSTANTES
 //////////////////////////////////*/
 
-    let btnInicio = document.getElementById ("botonInicioSesion")
-    let formulario = document.getElementById ("formUsuario") 
-    let formularioRegistro = document.getElementById ("formRegistro") 
+    let btnInicio = document.getElementById ("botonInicioSesion") //variable para boton inicio
+    let formulario = document.getElementById ("formUsuario") //variable para formulario usuario
+    let formularioRegistro = document.getElementById ("formRegistro") //variable para formulario registro
 
-    let listaUsuario = [] 
-    const listadoProductosNuevos = JSON.parse (localStorage.getItem ("producto"))
+    let listaUsuario = [] //declaro lista usuario, valor array
+    const listadoProductosNuevos = JSON.parse (localStorage.getItem ("producto")) //parseo lo que esta en localstorage "producto" y lo declaro la variable 
 
-    let inputBuscador = document.getElementById ("inputBusqueda")
-    let botonBuscador = document.getElementById ("boton_busqueda")
+    let inputBuscador = document.getElementById ("inputBusqueda") // declaro variable del input buscador
+    let botonBuscador = document.getElementById ("boton_busqueda") //declaro variable del boton busqueda
 
-    let imagen1 = document.getElementById ("img_1")
-    let imagen2 = document.getElementById ("img_2")
-    let imagen3 = document.getElementById ("img_3")
+    let imagen1 = document.getElementById ("img_1") //declaro variable para imagen 1
+    let imagen2 = document.getElementById ("img_2") //declaro variable para imagen 2
+    let imagen3 = document.getElementById ("img_3") //declaro variable para imagen 3
 
-    let boton1 = document.getElementById ("btn1")
-    let boton2 = document.getElementById ("btn2")
-    let boton3 = document.getElementById ("btn3")
+    let boton1 = document.getElementById ("btn1") //declaro variable para boton 1
+    let boton2 = document.getElementById ("btn2") //declaro variable para boton 2
+    let boton3 = document.getElementById ("btn3") //declaro variable para boton 3
     
-    let info; //declaro info como variable para despues traer informacion de mi localstorage (noti)
+    let info; // declaro variable info
     
     
 /*///////////////////////////////////////////
@@ -44,29 +44,14 @@ FUNCION = CUANDO CLICKEO BOTON INICIAR SESION
 /*///////////////////////////////////////////////////////////////////////////
 JQUERY → SLIDETOGGLE  → para mostrar menu despleglable en boton iniciar sesion
 ////////////////////////////////////////////////////////////////////////////*/
-$("#botonInicioSesion").on ("click", () => {
-        $(formulario).slideToggle (1000)
-        formulario.style.display = "flex"
+    $("#botonInicioSesion").on ("click", () => { // evento click para boton inicio sesion 
+        $(formulario).slideToggle (1000) // el formulario aparece con el slidetoggle
+
+        //estilos para formulario
+        formulario.style.display = "flex" 
         formulario.style.position = "absolute"
         formulario.style.flexDirection = "column"
-    })
-
-    /*
-    /////misma opcion hecha con JS/////////
-    const botonInicio = () => { // declaro una funcion para el boton = "botonInicio"    
-        if (formulario.style.display === "none") {
-            formulario.style.display = "flex" // al clickear, me despliega el formulario q estaba en display = none
-            formulario.style.position = "absolute" // y le declaro estilos
-            formulario.style.flexDirection = "column"
-        } else {
-            formulario.style.display = "none"
-        }
-    }
-
-    document.getElementById ("botonInicioSesion").addEventListener ("click", () => { // llamo al boton inicio sesion para que loggee al usuario ya registrado.
-        botonInicio ()
-    })
-    */
+    })    
 
 /*-//////////////////////////////////////
 FUNCION = CUANDO TOCO BOTON PARA REGISTRO
@@ -74,8 +59,10 @@ FUNCION = CUANDO TOCO BOTON PARA REGISTRO
 
     const registro = () => {
 
-        formulario.style.display = "none" // desaparece el div formulario 
-        formularioRegistro.style.display = "flex" // y aparece el otro formulario para registrarse 
+        formulario.style.display = "none" // desaparece el div formulario
+
+        //estilos para formulario registro
+        formularioRegistro.style.display = "flex" 
         formularioRegistro.style.position = "absolute"
         formularioRegistro.style.flexDirection = "column"
         
@@ -94,6 +81,7 @@ FUNCION = CUANDO TOCO BOTON PARA [AGREGAR USUARIO]
 ///////////////////////////////////////////////*/
     const agregarUsuario = () => {
         
+        //creo un nuevo usuario con cada valor que ingresa en el formulario de registro
         const usuario = new Usuarios ({
             
             nombreUs: document.getElementById("nombre").value,
@@ -108,13 +96,14 @@ FUNCION = CUANDO TOCO BOTON PARA [AGREGAR USUARIO]
         SE GUARDA INFORMACION EN LOCALSTORAGE
         /////////////////////////////////////*/
         
-        if (localStorage.getItem ("usuario") == null) {
-            listaUsuario.push (usuario)
-            localStorage.setItem ("usuario", JSON.stringify (listaUsuario))
-        } else {
-            const nuevaListaUsuario = JSON.parse (localStorage.getItem ("usuario"))
-            nuevaListaUsuario.push (usuario)
-            localStorage.setItem ("usuario", JSON.stringify (nuevaListaUsuario))
+        if (localStorage.getItem ("usuario") == null) { 
+            listaUsuario.push (usuario) //si "carrito" esta null, se pushea usuario a listaUsuario.
+            localStorage.setItem ("usuario", JSON.stringify (listaUsuario)) //y se pasa a JSON para guardarlo en "carrito"
+
+        } else { // en el caso que haya info en el localstorage
+            const nuevaListaUsuario = JSON.parse (localStorage.getItem ("usuario")) //constante nueva lista y se guarda la informacion de "carrito"
+            nuevaListaUsuario.push (usuario) // ususarios creados se ingresan en nueva lista.
+            localStorage.setItem ("usuario", JSON.stringify (nuevaListaUsuario)) //se parsea informacion de la nueva lista en "carrito"
         }
     }
     
@@ -133,26 +122,30 @@ FUNCION = PARA BOTON DE [LOG IN]
         let idOk = [];
         let passOk = [];
         
-        usuarioParseados.forEach (element => {     
-            idOk.push(element.nombreUs.idUs)
-            passOk.push(element.nombreUs.contraseñaUs)        
+        usuarioParseados.forEach (element => {   //recorremos usuariosParseados   
+            idOk.push(element.nombreUs.idUs) //por cada usuario nuevo, se pushea y se guarda en  idOk
+            passOk.push(element.nombreUs.contraseñaUs) //por cada password nuevo, se pushea y se guarda en  passOk1
         })
         
+        //condicional si coinciden los usuarios y contraseñas guardadas.
         if (idOk.includes(idUsuario) && passOk.includes(passUsuario)) {
             
             document.getElementById ("botonInicioSesion").style.display = "none"
             
+            //cada vez que inicia sesion corrrectamente, se crea el boton saludo.
             const hola = document.createElement ("button")
             hola.setAttribute ("id", "botonInicioSesion")
             hola.textContent = `Bienvenido ${idUsuario}`
             document.getElementById ("hola").appendChild (hola)
             
+            //desaparece el formulario.
             document.getElementById ("formUsuario").style.display = "none"
             
             return `bienvenida ${idUsuario}`
             
         } else {
-            console.log ("usuario o contraseña incorrectos")
+            //si se equivoca, informa mensaje de error x ALERT.
+            alert ("usuario o contraseña incorrectos")
             return "usuario o contraseña incorrectos"
         }
     } 
@@ -166,23 +159,19 @@ FUNCION = PARA BOTON DE [LOG IN]
 /*//////////////////////////////
 FUNCION: PARA INPUT → BUSCADOR 
 //////////////////////////////*/
-
-// FIXME: tengo que averiguar como evitar los espacios en blanco en busqueda.
     
     const busqueda = () => {  
         
         listadoProductosNuevos.forEach (element => {
+            let valorBusqueda = inputBuscador.value  //variable donde se guardara lo que se busca.
             
-            let valorBusqueda = inputBuscador.value  
+            //condicional si lo que busca hay o no en stock.
+            if (valorBusqueda === element.imagenProducto.nombreProducto || valorBusqueda === element.imagenProducto.nombreProducto+ " ") {
+                window.location.href = "pages/juegos.html" //cuando coincide con lo que hay en stock, se direcciona a la pagina juegos.
             
-            if (valorBusqueda === element.imagenProducto.nombreProducto) {
-                
-                window.location.href = "pages/juegos.html" 
-                
-            }
-            else {
-                console.log ("error")
-            }        
+            } else {
+                console.log ("no hay stock!")
+            }             
         })
     }
     

@@ -90,6 +90,9 @@ HEADER PARA TODAS LAS PAGINAS
     padding: 20px;
 }
 
+.modal {
+    display: none;
+}
 
 
 /*/////////////
@@ -322,6 +325,7 @@ HTML = JUEGOS
     align-items: center;
     justify-content: center;
     background-color: rgba(128, 128, 128, 0.308);
+    border-radius: 5px;
 }
 
 .styleImg {
@@ -349,14 +353,21 @@ HTML = JUEGOS
     font-family: 'Oswald', sans-serif;
     margin: 20px 0;
     font-style: italic;
+    font-weight: bolder;
+    font-size: 30px;
 }
 
 .comentario {
     font-family: 'Open Sans', sans-serif;
 }
 
+.precio {
+    font-family:'Open Sans', sans-serif;
+    font-weight: bolder;
+}
+
 .mainMerchandising {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     margin: 100px 0 ; 
@@ -400,14 +411,26 @@ CARRITO HTML
     padding-top: 200px;
 }
 
+#comentario {
+    text-align: center;
+    font-family: 'Noto Sans Mono', monospace;
+}
+
 #carrito {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
+.btn_finalizar {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
 #finalizar {
     display: none;
+    text-align: center;
     background-color: rgba(0, 0, 255, 0.212);
     border-radius: 20px;
     color: white;

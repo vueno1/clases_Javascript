@@ -6,14 +6,14 @@
 /*///////////
 CLASES
 ///////////*/
-    class User {
+    class User { // clase para usuario Administrador 
         constructor (nombre,pass) {
             this.nombre = nombre;
             this.pass = pass
         }
     }
     
-    class Productos {        
+    class Productos { // clase para crear productos nuevos  
         constructor (imagenPP,nombrePP, comentarioPP, categoriaPP,precioPP,stockPP) 
         {
             this.imagenProducto = imagenPP;
@@ -22,23 +22,11 @@ CLASES
             this.categoriaProducto = categoriaPP;
             this.precioProducto = precioPP;
             this.stockProducto = stockPP;
-        }    
+        }   
+
     }
     
-    class Merch {        
-        constructor (imagenMM, nombreMM, comentantarioMM, categoriaMM, precioMM, stockMM) 
-        {
-            this.imagenMerch = imagenMM;
-            this.nombreMerch = nombreMM;
-            this.comentarioMerch = comentantarioMM;
-            this.categoriaMerch = categoriaMM;
-            this.precioMerch = precioMM;
-            this.stockMerch = stockMM;
-        }    
-    }
-    
-    
-    class Noticias {
+    class Noticias { // clase para crear noticias 
         constructor (imagenNN, tituloNN, comentariosNN, fechaNN) 
         {
             this.imagenNN = imagenNN;
@@ -58,8 +46,7 @@ CREO UNA CONSTANTE = VALERIA COMO UNICO ADMINISTRADOR
 DECLARO VARIABLE 
 /////////////////*/
     let listaProductos; // DECLARACION LISTA PRODUCTOS
-    let listaMerchandising; 
-    let listaNoticias;
+    let listaNoticias; //declaro lista para noticias
     
 /*//////////////////////////////////////////////
 CONDICIONAL SI EL LOCALSTORAGE ESTA VACIO O NO
@@ -73,16 +60,6 @@ CONDICIONAL SI EL LOCALSTORAGE ESTA VACIO O NO
     } else  {
         listaProductos = JSON.parse (localStorage.getItem ("producto"))
     }
-
-    /*////////////
-    CLAVE: MERCH
-    ///////////*/
-    if (localStorage.getItem ("merch") == null ) {
-        listaMerchandising = []
-    } else {
-        listaMerchandising = JSON.parse (localStorage.getItem ("merch"))
-    }
-
  
     /*//////////
     CLAVE: NOTI
@@ -100,14 +77,17 @@ FUNCION PARA VALIDAR ADMINISTRADOR AL LOGGEAR
 
     const confirmAdmin = () => {    
         
-        let idAdm = document.getElementById ("idAdmin").value
-        let contraseñaAdm = document.getElementById ("passAdm").value
+        let idAdm = document.getElementById ("idAdmin").value //declaro variable para guardar valor del input
+        let contraseñaAdm = document.getElementById ("passAdm").value //declaro variable para guardar valor del input
 
+        //condicionales en el caso que ingrese usario y password correctos del adminstrador
         if (idAdm === valeria.nombre && contraseñaAdm === valeria.pass) {
 
+            //estilos en el caso ingrese usuario y contraseña correctos...
             document.getElementById ("formAdmin").style.display = "none"
             document.getElementById ("holaAdmin").textContent = `BIENVENIDO ${idAdm}`
-            
+             
+            //y aparecen los formularios para ingresar productos y noticias
             document.getElementById ("form_index").style.display = "flex"
 
         } else {
@@ -159,46 +139,6 @@ FUNCION: PARA AGREGAR PRODUCTOS
         e.preventDefault ()
         agregarProductos ()
     })
-
-
-/*/////////////////////////////////
-FUNCION: PARA AGREGAR MERCHANDISING 
-/////////////////////////////////*/
-
-    const agregarMerch = () => {
-
-        const merchandising = new Merch ({
-
-            imagenMerch: document.getElementById ("imagenM").value,
-            nombreMerch: document.getElementById ("nombreM").value, 
-            comentarioMerch: document.getElementById ("comentarioM").value,
-            categoriaMerch: document.getElementById ("categoriaM").value,
-            precioMerch: document.getElementById ("precioM").value,
-            stockMerch: document.getElementById ("stockM").value,
-        })
-
-        //---creo el condicional para guardar la informacion ingresada--------------
-        //-----si no hay informacion en el storage, lo guardo.
-        if (localStorage.getItem("merch") == null) { // si busco en local storage y no hay informacion.... = null
-        
-            listaMerchandising.push (merchandising) // pusheo info y agrego a listaproducto.
-            localStorage.setItem ("merch", JSON.stringify(listaMerchandising)) // y esa informacion de "listaproductos" la transformo a JSON y 
-            //guardo en local storage.
-
-        } else { // pero, si el local storage no esta vacio.
-            const nuevalistaMerch = JSON.parse(localStorage.getItem("merch")) // creo una nueva array (nuevalista....) donde
-            //parseo lo que esta en local storage a nombre de "producto" 
-
-            nuevalistaMerch.push(merchandising) // pusheo ese nuevo elemento a mi nueva array
-            localStorage.setItem("merch", JSON.stringify(nuevalistaMerch))  // y guardo en local storage pasando la info a JSON.
-        }  
-    }
-
-    document.getElementsByClassName ("boton_merch")[0].addEventListener ("click", (e)=> {
-        e.preventDefault ()
-        agregarMerch ()
-    })
-
 
 /*////////////////////////////
 FUNCION PARA AGREGAR NOTICIAS
