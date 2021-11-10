@@ -125,6 +125,7 @@ FUNCION PARA COMPRAR PRODUCTOS Y AGREGAR A CARRITO
 
         } else {
             carrito = JSON.parse (localStorage.getItem ("carrito"))
+    
         }
 
         carrito.push (listadoProductosNuevos [index])

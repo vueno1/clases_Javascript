@@ -263,14 +263,22 @@ info.forEach (element => {
     
         const h5N = document.createElement ("h5")
         h5N.textContent = `${element.imagenNN.tituloNN}`
+        h5N.style.fontFamily = "Noto Sans Mono"
+        h5N.style.textAlign = "center"
+        h5N.style.padding = "20px"
         divN.appendChild (h5N)
     
         const pN = document.createElement ("p")
         pN.textContent = `${element.imagenNN.comentariosNN}`
+        pN.style.fontStyle = "italic"
+        pN.style.padding = "20px"
         divN.appendChild (pN)
     
         const spanN = document.createElement ("span")
         spanN.textContent = `${element.imagenNN.fechaNN}`
+        spanN.style.color = "blue"
+        spanN.style.fontSize = "15px"
+        spanN.style.background = "#80808042"
         divN.appendChild (spanN)    
     
     document.getElementById ("index_seccion_noticias").appendChild (divN)

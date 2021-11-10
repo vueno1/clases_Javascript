@@ -245,6 +245,7 @@ INDEX-MAIN
 
 .imgNoti {
     display: flex;
+    height: 150px;
 }
 #api {
     display: flex;
@@ -411,6 +412,14 @@ CARRITO HTML
     padding-top: 200px;
 }
 
+#carritoCompras {
+    text-align: center;
+    font-size: 'Oswald', sans-serif;
+    font-size: 40px;
+    font-weight: bolder;
+    font-style: italic;
+}
+
 #comentario {
     text-align: center;
     font-family: 'Noto Sans Mono', monospace;
@@ -439,6 +448,20 @@ CARRITO HTML
 
 .montoTotal {
     display: none;
+    justify-content: center;
+}
+
+.card-header {
+    font-family:'Oswald', sans-serif ;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.card-text {
+    font-family:'Oswald', sans-serif ;
+    font-size: 25px;
+    font-weight: bolder;
+    padding-bottom: 20px;
 }
 
 /*////////////////////////////////////////////////*/
